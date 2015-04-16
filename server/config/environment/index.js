@@ -30,7 +30,7 @@ var all = {
   },
 
   // List of user roles
-  userRoles: ['guest', 'user', 'admin'],
+  userRoles: ['subscriber', 'contributor', 'author', 'editor', 'admin'],
 
   // MongoDB connection options
   mongo: {
@@ -39,7 +39,7 @@ var all = {
         safe: true
       }
     }
-  },
+  }
 
 };
 
