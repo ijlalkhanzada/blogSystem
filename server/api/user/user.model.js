@@ -60,6 +60,11 @@ UserSchema
   .validate(function(email) {
     return email.length;
   }, 'Email cannot be blank');
+UserSchema
+  .path('name')
+  .validate(function(name) {
+    return name.length;
+  }, 'name cannot be blank');
 
 // Validate empty password
 UserSchema
@@ -69,6 +74,25 @@ UserSchema
   }, 'Password cannot be blank');
 
 // Validate email is not taken
+
+
+UserSchema
+.path('name')
+  .validate(function(value, respond) {
+    var self = this;
+    this.constructor.findOne({name: value}, function(err, user) {
+      if(err) throw err;
+      if(user) {
+        if(self.id === user.id) return respond(true);
+        return respond(false);
+      }
+      respond(true);
+    });
+  }, 'The specified User Name is already in use.');
+
+
+
+
 UserSchema
   .path('email')
   .validate(function(value, respond) {
