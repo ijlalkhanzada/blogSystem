@@ -9,18 +9,18 @@
 var User = require('../api/user/user.model');
 
 
-//User.find({})(function() {
-//if(User.find({}).length == 0) {
+User.find(function(err, user) {
+if(!user.length) {
     User.create(
         {
             provider: 'local',
             role: 'admin',
-            name: 'Admin',
+            userName: 'Admin',
             email: 'admin@admin.com',
             password: 'admin'
         }, function () {
             console.log('finished populating users');
         }
     );
-//}
-//});
+}
+});
