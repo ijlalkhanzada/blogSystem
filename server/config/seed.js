@@ -31,7 +31,7 @@ Thing.find({}).remove(function() {
 });
 
 //User.find({}).remove(function() {
-if(User.length == 0) {
+//if(User.length == 0) {
     User.create(
 //      {
 //    provider: 'local',
@@ -49,5 +49,5 @@ if(User.length == 0) {
             console.log('finished populating users');
         }
     );
-}
+//}
 //});

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, $state) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
@@ -11,6 +11,11 @@ angular.module('blogSystemApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
+    var currentUserId = $scope.getCurrentUser()._id;
+        $scope.zzx = function(){
+            console.log();
+            $state.go('profile', {id: currentUserId})
+        };
 
     $scope.logout = function() {
       Auth.logout();
