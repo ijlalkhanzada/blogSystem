@@ -12,7 +12,7 @@ angular.module('blogSystemApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
     var currentUserId = $scope.getCurrentUser()._id;
-        $scope.zzx = function(){
+        $scope.userData = function(){
             console.log();
             $state.go('profile', {id: currentUserId})
         };
