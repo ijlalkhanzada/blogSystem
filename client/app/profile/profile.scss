@@ -132,7 +132,19 @@ textarea{resize: none;}
   line-height: 65px;
   display: inline-block;
 }
-
+.padding-left{
+  padding-left: 0px !important;
+}
+.padding-right{
+  padding-right: 0px !important;
+}
+.padding_0{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#sidebar-wrapper{
+  margin-top: 50px;
+ }
 //@media (max-width:767px) {
 //  #nav-wrapper {
 //    padding-left: 70px;
