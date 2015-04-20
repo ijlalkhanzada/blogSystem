@@ -7,7 +7,7 @@ angular.module('blogSystemApp')
       link: function (scope, element, attrs) {
           element.on('click', function() {
               var pickClass = attrs.toggleClass;
-            $('body').find('#nav-wrapper').toggleClass(pickClass);
+            $('body').find('#nav-wrapper, .margin-left').toggleClass(pickClass);
 
           });
       }
