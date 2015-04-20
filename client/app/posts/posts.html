@@ -1,8 +1,18 @@
 <div class="container">
-  <div ng-repeat="post in posts">
-    <h3 ng-bind="post.post_author"></h3>
-      <p ng-bind="post.post_name"></p>
-    <div ng-bind="post.post_content"></div>
-    <span ng-bind="post. post_date"></span>
+    <table class="table table-bordered table-hover">
+      <tbody>
+      <tr>
+        <th>Author Name</th>
+        <th>Post Name</th>
+        <th>Post Content</th>
+        <th>Post Date</th>
+      </tr>
+      <tr ng-repeat="post in posts">
+        <td>{{post.post_author}}</td>
+        <td>{{post.post_name}}</td>
+        <td>{{post.post_content | limitTo: 80}}</td>
+        <td>{{post.post_date}}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
-</div>
