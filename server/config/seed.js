@@ -5,12 +5,11 @@
 
 'use strict';
 
-//var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 
 
-User.find(function(err, user) {
-if(!user.length) {
+User.find(function(err, users) {
+if(!users.length) {
     User.create(
         {
             provider: 'local',

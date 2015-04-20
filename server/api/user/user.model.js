@@ -26,7 +26,6 @@ var UserSchema = new Schema({
     website: String,
     state: String,
     description: String
-
 });
 
 /**
