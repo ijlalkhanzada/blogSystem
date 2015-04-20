@@ -6,16 +6,16 @@ angular.module('blogSystemApp')
       'title': 'Home',
       'link': '/'
     }];
-
     $scope.isCollapsed = true;
-    $scope.isLoggedIn = Auth.isLoggedIn;
-    $scope.isAdmin = Auth.isAdmin;
-    $scope.getCurrentUser = Auth.getCurrentUser;
-    var currentUserId = $scope.getCurrentUser()._id;
+        $scope.isLoggedIn = Auth.isLoggedIn;
+        $scope.isAdmin = Auth.isAdmin;
+        $scope.getCurrentUser = Auth.getCurrentUser;
+        var currentUserId = Auth.getCurrentUser()._id;
+
         $scope.userData = function(){
-            console.log();
             $state.go('profile', {id: currentUserId})
         };
+
 
     $scope.logout = function() {
       Auth.logout();

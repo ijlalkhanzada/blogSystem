@@ -4,7 +4,7 @@ angular.module('blogSystemApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('profile', {
-        url: '/profile/:id',
+        url: '/admin/profile/:id',
         templateUrl: 'app/profile/profile.html',
         controller: 'ProfileCtrl'
       });
