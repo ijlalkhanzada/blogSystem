@@ -8,6 +8,12 @@ textarea{resize: none;}
   margin-left:0px;
   margin-right:0px;
 }
+.open-dropDown{
+  top: 36px !important;
+  background: none !important;
+  border: none !important;
+  min-width: 150px !important;
+}
 
 #nav-wrapper {
   padding-left: 70px;
@@ -81,6 +87,8 @@ textarea{resize: none;}
   color: #999999;
   display: block;
   text-decoration: none;
+  line-height: inherit;
+  padding: 0;
 }
 
 .sidebar-nav li a:hover {
