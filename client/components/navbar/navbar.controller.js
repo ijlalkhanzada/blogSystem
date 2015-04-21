@@ -1,5 +1,4 @@
 'use strict';
-
 angular.module('blogSystemApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth, $state) {
     $scope.menu = [{
@@ -15,9 +14,7 @@ angular.module('blogSystemApp')
         $scope.userData = function(){
             $state.go('profile', {id: currentUserId})
         };
-
-
-    $scope.logout = function() {
+        $scope.logout = function() {
       Auth.logout();
       $location.path('/login');
     };
