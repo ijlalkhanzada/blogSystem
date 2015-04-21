@@ -9,6 +9,7 @@ angular.module('blogSystemApp')
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.isAdmin = Auth.isAdmin;
         $scope.getCurrentUser = Auth.getCurrentUser;
+        $scope.userRole = Auth.getCurrentUser().role;
         var currentUserId = Auth.getCurrentUser()._id;
 
         $scope.userData = function(){
