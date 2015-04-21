@@ -1,9 +1,7 @@
 <div ng-include="'components/navbar/navbar2.html'"></div>
 <div class="container">
     <div ng-repeat="user in users" class="temp">
-       <div>
-           <h3 ng-bind="user.userName"></h3>
+           <a> <h3 ng-click="userProfile(user)" ng-if="state = user.userName" ng-bind="user.userName"></h3></a>
            <p ng-bind="user.role"></p>
-       </div>
     </div>
 </div>
