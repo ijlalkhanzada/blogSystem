@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('PostsCtrl', function ($scope, $http) {
+  .controller('PostsCtrl', function ($scope, $http, Auth) {
         $scope.posts = [];
-        $http.get('/api/posts/').success(function (postList) {
-            $scope.posts = postList ;
+        var item = [];
+        var userID = Auth.getCurrentUser()._id;
+        $http.get('/api/posts/'+userID).success(function (postList) {
+            $scope.posts = postList;
         });
   });
