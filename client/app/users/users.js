@@ -3,7 +3,7 @@
 angular.module('blogSystemApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('users', {
+      .state('user', {
         url: '/admin/users',
         templateUrl: 'app/users/users.html',
         controller: 'UsersCtrl'
