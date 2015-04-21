@@ -10,12 +10,14 @@
         <th>Post Name</th>
         <th>Post Content</th>
         <th>Post Date</th>
+        <th>Role</th>
       </tr>
       <tr ng-repeat="post in posts">
         <td>{{post.post_author}}</td>
         <td>{{post.post_name}}</td>
         <td>{{post.post_content | limitTo: 80}}</td>
         <td>{{post.post_date}}</td>
+        <td>{{user.role}}</td>
       </tr>
       </tbody>
     </table>

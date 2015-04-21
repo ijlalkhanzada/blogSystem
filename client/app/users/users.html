@@ -1,7 +1,25 @@
 <div ng-include="'components/navbar/navbar2.html'"></div>
 <div class="container">
-    <div ng-repeat="user in users" class="temp">
-           <a> <h3 ng-click="userProfile(user)" ng-if="state = user.userName" ng-bind="user.userName"></h3></a>
-           <p ng-bind="user.role"></p>
+    <div class="temp ">
+      <div class="bs-example col-md-12" data-example-id="bordered-table">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th>Serial</th>
+            <th>User Name</th>
+            <th>User Email</th>
+            <th>Role</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="user in users">
+            <th scope="row">{{$index + 1}}</th>
+            <td ng-click="userProfile(user)" ng-if="state = user.userName" ng-bind="user.userName"></td>
+            <td ng-bind="user.email"></td>
+            <td ng-bind="user.role">@mdo</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 </div>
