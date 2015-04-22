@@ -42,7 +42,8 @@ exports.show = function (req, res, next) {
   User.findById(userId, function (err, user) {
     if (err) return next(err);
     if (!user) return res.send(401);
-    res.json(user.profile);
+    console.log(user)
+    res.json(user);
   });
 };
 
@@ -111,7 +112,7 @@ exports.update = function(req, res) {
     User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
         if (err) { return handleError(res, err); }
         if(!user) { return res.send(404); }
-
+      res.json(user);
     });
 };
 

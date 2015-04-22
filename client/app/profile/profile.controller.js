@@ -1,22 +1,27 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('ProfileCtrl', function ($scope, $http, $state) {
+  .controller('ProfileCtrl', function ($scope, User, $state) {
 
-    $http.get('/api/users/details/'+ $state.params.id).success(function (user) {
+    User.getUser({id: $state.params.id}, function(user){
+      $scope.user = user;
+      console.log(user)
+    });
+
+    User.getUser({id: $state.params.id},function (user) {
         $scope.user = user;
         var oldUserName = user.userName;
         var oldEmail = user.email;
 
         $scope.update = function(user){
             if(oldUserName == user.userName && oldEmail == user.email) {
-                $http.put('/api/users/details/' + user._id, {userName: user.userName, role: user.role, email: user.email, firstName: user.firstName, lastName: user.lastName, mobile: user.mobile, age: user.age, city: user.city, country: user.country, gender: user.gender, company: user.company, designation: user.designation, website: user.website, state: user.state, description: user.description});
-                console.log(oldUserName,user.userName, oldEmail, user.role);
-
-
+              User.updateUser({id: $state.params.id} , user, function(updateUser){
+                console.log(updateUser);
                 $state.go('main');
+              });
             }
         }
     });
+
 
   });

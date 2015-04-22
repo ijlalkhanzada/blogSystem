@@ -17,6 +17,18 @@ angular.module('blogSystemApp')
         params: {
           id:'me'
         }
+      },
+      getUser: {
+        method: 'GET',
+        params: {
+          id:'@_id'
+        }
+      },
+     updateUser: {
+        method: 'PUT',
+        params: {
+          id:'@_id'
+        }
       }
 	  });
   });

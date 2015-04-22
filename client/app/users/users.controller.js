@@ -5,6 +5,7 @@ angular.module('blogSystemApp')
      $scope.users = [];
         $http.get('/api/users').success(function(usersList){
             $scope.users = usersList;
+          console.log('USERS :  ',$scope.users)
         });
     $scope.userProfile = function(profile){
       $state.go('profileUser', {id: profile._id});
