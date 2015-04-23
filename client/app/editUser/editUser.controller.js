@@ -3,13 +3,13 @@
 angular.module('blogSystemApp')
   .controller('EditUserCtrl', function ($scope, User, $state) {
         User.getUser({id: $state.params.id}, function(user){
-          console.log(user)
+          console.log(user);
           $scope.user = user;
-        });
-        $scope.userProfile = function(profile){
-            $scope.user = profile;
-            $scope.update = function(){
+
+            $scope.userProfile = function(){
+                console.log($scope.user);
                 User.updateProfile($scope.user);
-            }
-        };
+            };
+        });
+
   });
