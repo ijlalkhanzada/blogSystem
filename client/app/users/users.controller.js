@@ -3,16 +3,11 @@
 angular.module('blogSystemApp')
   .controller('UsersCtrl', function ($scope, User, $state) {
         $scope.users = User.query();
-//           console.log(User.query());
-        $scope.showForm = false;
     $scope.userProfile = function(profile){
-        $scope.user = profile;
-        console.log($scope.user.userName);
-        $scope.showForm = true;
+        $scope.b = profile;
+        var id = profile._id;
+        console.log($scope.b.userName, id);
+        $state.go('editUser',{id: id})
 
-        $scope.update = function(){
-            User.updateProfile($scope.user);
-            $scope.showForm = false;
-        }
     };
   });
