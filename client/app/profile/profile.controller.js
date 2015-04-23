@@ -16,7 +16,7 @@ angular.module('blogSystemApp')
         $scope.update = function(user){
             if(oldUserName == user.userName && oldEmail == user.email) {
               User.updateUser({id: $state.params.id} , user, function(updateUser){
-                console.log(updateUser);
+                console.log('Up',updateUser);
                 $state.go('main');
               });
             }

@@ -7,7 +7,7 @@ angular.module('blogSystemApp')
             $scope.users = usersList;
           console.log('USERS :  ',$scope.users)
         });
-    $scope.userProfile = function(profile){
+       $scope.userProfile = function(profile){
       $state.go('profileUser', {id: profile._id});
     }
   });

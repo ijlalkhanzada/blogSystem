@@ -1,18 +1,18 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('NewCtrl', function ($scope, $http, Auth) {
+  .controller('NewCtrl', function ($scope, newService , Auth ,$state) {
     var userID = Auth.getCurrentUser()._id;
-    $scope.userId = Auth.getCurrentUser()._id;
-    $scope.createPost = function(){
-        if($scope.postData === '' || $scope.postName === '') {
-            return;
-        }
-        if(userID === $scope.userId) {
-            $http.post('api/posts/', {post_content: $scope.postData, post_name: $scope.postName, post_author: $scope.userId});
-            $scope.postData = '';
-            $scope.postName = '';
-            $scope.authorName = '';
+    $scope.post = {};
+    $scope.post.post_author = Auth.getCurrentUser()._id;
+    $scope.userName = Auth.getCurrentUser().userName;
+    $scope.createPost = function(form){
+      $scope.submitted = true;
+      if(form.$valid){
+        newService.save($scope.post, function(post){
+          console.log(post);
+          $state.go('posts');
+        });
         }
     }
 

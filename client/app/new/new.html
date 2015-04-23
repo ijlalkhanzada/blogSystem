@@ -3,28 +3,30 @@
 
 <div class="container">
   <div class="formWrapper">
-    <form class="form-horizontal">
+    <form class="form-horizontal" novalidate name="form" ng-submit="createPost(form)">
         <div class="form-group paddingTop40">
             <label for="authorName" class="col-sm-2 control-label">User Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="authorName" placeholder="Post Name" ng-model="userId" disabled>
+                <input type="text" class="form-control" id="authorName" placeholder="Post Name" ng-model="userName" disabled>
             </div>
         </div>
 
         <div class="form-group">
             <label for="newPostName" class="col-sm-2 control-label">Post Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="newPostName" placeholder="Post Name" ng-model="postName">
+                <input type="text" class="form-control" id="newPostName" name="name" placeholder="Post Name" ng-model="post.post_name" required>
+              <p ng-show="form.name.$error.required && submitted">Please fill name</p>
             </div>
         </div>
 
         <div class="form-group">
             <label for="newPostDescription" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-10">
-                <textarea type="text" class="form-control" id="newPostDescription" placeholder="Post Something Here" ng-model="postData" rows="5"></textarea>
+                <textarea class="form-control" id="newPostDescription" name="content" placeholder="Post Something Here" ng-model="post.post_content" rows="5" required></textarea>
+              <p class="error" ng-show="form.content.$error.required && submitted">Please Fill Description</p>
             </div>
         </div>
-        <a href="#" class="btn btn-success pull-right" ng-click="createPost()">post</a>
+        <button class="btn btn-success pull-right">post</button>
     </form>
   </div>
 </div>
