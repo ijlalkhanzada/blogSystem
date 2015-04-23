@@ -14,5 +14,7 @@ angular.module('blogSystemApp')
             $http.get('/api/posts/').success(function (postList) {
                 $scope.posts = postList;
             });
+          console.log('Role Name:',userRole);
+
         }
   });

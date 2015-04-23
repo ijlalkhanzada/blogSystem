@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('AdminCtrl', function ($scope, $http, Auth, User) {
+  .controller('AdminCtrl', function ($scope, Auth, User) {
 
     // Use the User $resource to fetch all users
     $scope.users = User.query();

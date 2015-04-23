@@ -8,7 +8,6 @@ angular.module('blogSystemApp')
     }
 
     return {
-
       /**
        * Authenticate user and save token
        *
