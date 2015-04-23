@@ -8,10 +8,4 @@ angular.module('blogSystemApp')
         templateUrl: 'app/profile/profile.html',
         controller: 'ProfileCtrl'
       })
-
-      .state('profileUser', {
-        url: '/admin/user/edit/:id',
-        templateUrl: 'app/profile/profile.html',
-        controller: 'ProfileCtrl'
-      });
   });

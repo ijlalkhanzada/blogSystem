@@ -10,11 +10,6 @@ angular.module('blogSystemApp')
         $scope.isAdmin = Auth.isAdmin;
         $scope.getCurrentUser = Auth.getCurrentUser;
         $scope.userRole = Auth.getCurrentUser().role;
-        var currentUserId = Auth.getCurrentUser()._id;
-
-        $scope.userData = function(){
-            $state.go('profile', {id: currentUserId})
-        };
         $scope.logout = function() {
       Auth.logout();
       $location.path('/login');

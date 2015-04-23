@@ -1,12 +1,18 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('UsersCtrl', function ($scope, $http,$state) {
-     $scope.users = [];
-        $http.get('/api/users').success(function(usersList){
-            $scope.users = usersList;
-        });
+  .controller('UsersCtrl', function ($scope, User, $state) {
+        $scope.users = User.query();
+//           console.log(User.query());
+        $scope.showForm = false;
     $scope.userProfile = function(profile){
-      $state.go('profileUser', {id: profile._id});
-    }
+        $scope.user = profile;
+        console.log($scope.user.userName);
+        $scope.showForm = true;
+
+        $scope.update = function(){
+            User.updateProfile($scope.user);
+            $scope.showForm = false;
+        }
+    };
   });
