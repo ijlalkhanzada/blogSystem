@@ -38,8 +38,7 @@ exports.create = function (req, res, next) {
  * Get a single user
  */
 exports.show = function (req, res, next) {
-  var userId = req.user._id;
-  User.findById(userId, function (err, user) {
+  User.findById(req.params.id, function (err, user) {
     if (err) return next(err);
     if (!user) return res.send(401);
     res.json(user);
