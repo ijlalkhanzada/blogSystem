@@ -7,7 +7,7 @@ angular.module('blogSystemApp')
 
     },
       {
-      update: {
+        userProfileUp: {
         method: 'PUT',
         params: {
           id: '@_id'

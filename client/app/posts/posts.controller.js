@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('PostsCtrl', function ($scope, newService, Auth) {
+  .controller('PostsCtrl', function ($scope, newService, Auth , $state) {
         $scope.posts = [];
         var userID = Auth.getCurrentUser()._id;
         var userRole = Auth.getCurrentUser().role;
@@ -17,4 +17,9 @@ angular.module('blogSystemApp')
             });
             console.log('Role Name:',userRole);
         }
+           $scope.viwe = function(){
+             newService.userProfileUp($scope.post);
+             $state.go('editPost',{id: userID});
+             console.log('content', newService.userProfileUp)
+    }
   });
