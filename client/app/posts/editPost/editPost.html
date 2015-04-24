@@ -3,15 +3,8 @@
 
 <div class="container">
     <div class="formWrapper">
-        <form class="form-horizontal" novalidate name="form" ng-submit="createPost(form)">
+        <form class="form-horizontal" novalidate name="form" ng-submit="updatePost()">
             <div class="form-group paddingTop40">
-                <label for="authorName" class="col-sm-2 control-label">User Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="authorName" placeholder="Post Name" ng-model="userName" disabled>
-                </div>
-            </div>
-
-            <div class="form-group">
                 <label for="newPostName" class="col-sm-2 control-label">Post Name</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="newPostName" name="name" placeholder="Post Name" ng-model="post.post_name" required>

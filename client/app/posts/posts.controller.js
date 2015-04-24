@@ -6,14 +6,21 @@ angular.module('blogSystemApp')
         var userID = Auth.getCurrentUser()._id;
         var userRole = Auth.getCurrentUser().role;
         if(userRole === 'author') {
-          newService.query({id: userID}, function(postList) {
-                $scope.posts = postList;
-          });
-        }
-        else if(userRole === 'editor' || userRole === 'admin'){
-          newService.query(function(postList) {
+            newService.query({id: userID}, function(postList) {
                 $scope.posts = postList;
             });
         }
-        else{ $scope.message = 'This page not for you...!!';}
+        else if(userRole === 'editor' || userRole === 'admin'){
+            newService.query(function(postList) {
+                $scope.posts = postList;
+            });
+        }
+        else{
+            $scope.message = 'This page not for you...!!';
+        }
+
+           $scope.view = function(post){
+               var id = post._id;
+               $state.go('editPost',{id: id});
+           }
   });

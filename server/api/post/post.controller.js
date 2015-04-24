@@ -27,6 +27,13 @@ exports.showAuthorPost = function(req, res) {
         return res.json(post);
     });
 };
+exports.editPost = function(req, res) {
+    Post.findById(req.params.id, function (err, post) {
+        if(err) { return handleError(res, err); }
+        if(!post) { return res.send(404); }
+        return res.json(post);
+    });
+};
 
 // Creates a new post in the DB.
 exports.create = function(req, res) {

@@ -12,6 +12,13 @@ angular.module('blogSystemApp')
         params: {
           id: '@_id'
         }
+      },
+          getPost: {
+          method: 'GET',
+          params: {
+              id:'@_id',
+              controller: 'edit'
+          }
       }
     }
     );
