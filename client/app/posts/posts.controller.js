@@ -2,12 +2,11 @@
 
 angular.module('blogSystemApp')
   .controller('PostsCtrl', function ($scope, newService, Auth , $state) {
-        $scope.posts = [];
+
         var userID = Auth.getCurrentUser()._id;
         var userRole = Auth.getCurrentUser().role;
-        $scope.post = {};
         if(userRole === 'author') {
-          newService.get($scope.post, function(postList) {
+          newService.query({id: userID}, function(postList) {
                 $scope.posts = postList;
           });
         }
@@ -15,11 +14,6 @@ angular.module('blogSystemApp')
           newService.query(function(postList) {
                 $scope.posts = postList;
             });
-            console.log('Role Name:',userRole);
         }
-           $scope.viwe = function(){
-             newService.userProfileUp($scope.post);
-             $state.go('editPost',{id: userID});
-             console.log('content', newService.userProfileUp)
-    }
+        else{ $scope.message = 'This page not for you...!!';}
   });

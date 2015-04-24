@@ -9,6 +9,7 @@ angular.module('blogSystemApp')
             $scope.userProfile = function(){
                 console.log($scope.user);
                 User.updateProfile($scope.user);
+                $state.go('user')
             };
         });
 
