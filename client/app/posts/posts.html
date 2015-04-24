@@ -11,7 +11,7 @@
         <th>Post Content</th>
         <th>Post Date</th>
       </tr>
-      <tr ng-repeat="post in posts">
+      <tr ng-repeat="post in posts" ng-click="viwe()">
         <td>{{post.post_author}}</td>
         <td>{{post.post_name}}</td>
         <td>{{post.post_content | limitTo: 80}}</td>

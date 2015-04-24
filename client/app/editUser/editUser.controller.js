@@ -8,8 +8,14 @@ angular.module('blogSystemApp')
         });
         $scope.userProfile = function(profile){
             $scope.user = profile;
-            $scope.update = function(){
-                User.updateProfile($scope.user);
-            }
+
         };
+
+    $scope.update = function(user){
+      User.updateProfile($scope.user);
+      $state.go('user')
+      console.log(' $scope.update' ,  User.updateProfile)
+    }
+
+
   });

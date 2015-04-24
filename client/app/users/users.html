@@ -13,9 +13,9 @@
           </tr>
           </thead>
           <tbody>
-          <tr ng-repeat="user in users">
+          <tr ng-repeat="user in users" ng-click="userProfile(user)">
             <th scope="row">{{$index + 1}}</th>
-            <td ng-click="userProfile(user)" ng-if="state = user.userName" ng-bind="user.userName"></td>
+            <td  ng-if="state = user.userName" ng-bind="user.userName"></td>
             <td ng-bind="user.email"></td>
             <td ng-bind="user.role">@mdo</td>
           </tr>
