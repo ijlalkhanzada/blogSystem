@@ -19,7 +19,9 @@ angular.module('blogSystemApp')
             $scope.message = 'This page not for you...!!';
         }
 
-           $scope.view = function(post){
+
+
+    $scope.view = function(post){
                var id = post._id;
                $state.go('editPost',{id: id});
            }
