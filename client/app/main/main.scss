@@ -28,3 +28,33 @@
     margin-top: 70px;
     border-top: 1px solid #E5E5E5;
 }
+.article{
+  width: 100%;
+ background: rgb(248, 248, 248);
+  padding: 25px 48px;
+  margin-bottom: 25px;
+
+  a{
+    margin-right: 15px;
+    color: #c84d29;
+    text-decoration: none;
+    i{
+      padding-right: 5px;
+    }
+  }
+  .entry_summary{
+    width: 100%;
+    a{
+      font-size: 17px;
+      i{
+        font-size: 10px;
+      }
+    }
+  p{
+    padding: 15px 0 0 0;
+    margin-bottom: 32px;
+  }
+
+}
+
+}

@@ -4,22 +4,35 @@
   <div class="col-lg-12 center-block">
     <div class="container">
       <div class="col-md-10 margin_content">
-        <table class="table table-striped table-hover">
-          <tbody>
-          <tr>
-            <th>Author</th>
-            <th>Post Name</th>
-            <th>Post Content</th>
-            <th>Post Date</th>
-          </tr>
-          <tr ng-repeat="post in posts" ng-click="view(post)">
-            <td>{{post.post_author}}</td>
-            <td>{{post.post_name}}</td>
-            <td>{{post.post_content | limitTo: 20}}</td>
-            <td>{{post.post_date}}</td>
-          </tr>
-          </tbody>
-        </table>
+        <!--<table class="table table-striped table-hover">-->
+          <!--<tbody>-->
+          <!--<tr>-->
+            <!--<th>Author</th>-->
+            <!--<th>Post Name</th>-->
+            <!--<th>Post Content</th>-->
+            <!--<th>Post Date</th>-->
+          <!--</tr>-->
+          <!--<tr ng-repeat="post in posts" ng-click="view(post)">-->
+            <!--<td>{{post.post_author}}</td>-->
+            <!--<td>{{post.post_name}}</td>-->
+            <!--<td>{{post.post_content | limitTo: 20}}</td>-->
+            <!--<td>{{post.post_date}}</td>-->
+          <!--</tr>-->
+          <!--</tbody>-->
+        <!--</table>-->
+
+        <article class="article" ng-repeat="post in posts">
+            <header>
+              <h3>{{post.post_name}}</h3>
+              <span><a href="#"><i class="glyphicon glyphicon-user"></i>{{post.post_author.userName}}</a><i class="glyphicon glyphicon-calendar"></i>{{post.post_date}}</span>
+            </header>
+          <div class="entry_summary">
+            <section>
+            <p>{{post.post_content | limitTo: 700}}</p>
+            </section>
+            <a ui-sref="login">Read More <i class="glyphicon glyphicon-arrow-right"></i></a>
+          </div>
+        </article>
       </div>
     </div>
   </div></header>

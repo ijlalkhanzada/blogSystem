@@ -12,7 +12,7 @@
         <th>Post Date</th>
       </tr>
       <tr ng-repeat="post in posts" ng-click="view(post)">
-        <td>{{post.post_author}}</td>
+        <td>{{post.post_author._id}}</td>
         <td>{{post.post_name}}</td>
         <td>{{post.post_content | limitTo: 20}}</td>
         <td>{{post.post_date}}</td>

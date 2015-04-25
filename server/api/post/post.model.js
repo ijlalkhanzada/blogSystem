@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
-  post_author: String,
+  post_author: { type: Schema.ObjectId, ref: 'User' },
   post_date: { type: Date, default: Date.now },
   //post_date_gmt: { type: Date, default: Date.now },
   post_content: String,
