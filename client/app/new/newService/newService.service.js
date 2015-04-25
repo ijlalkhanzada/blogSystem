@@ -19,6 +19,14 @@ angular.module('blogSystemApp')
               id:'@_id',
               controller: 'edit'
           }
+      },
+          filterPost: {
+          method: 'GET',
+              isArray: true,
+          params: {
+              id:'@_id',
+              controller: 'filter'
+          }
       }
     }
     );

@@ -16,7 +16,9 @@ var PostSchema = new Schema({
   post_modified_date: String,
   //post_modified_gmt: String,
   menu_order: String,
-  comment_count: String
+  comment_count: String,
+  category: String
+
 });
 
 module.exports = mongoose.model('Post', PostSchema);

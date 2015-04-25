@@ -19,10 +19,32 @@ angular.module('blogSystemApp')
             $scope.message = 'This page not for you...!!';
         }
 
-
-
-    $scope.view = function(post){
+        $scope.view = function(post){
                var id = post._id;
                $state.go('editPost',{id: id});
-           }
+        };
+
+
+
+        $scope.x = function() {
+          newService.filterPost({id: $scope.category}, function (f) {
+             $scope.g = f;
+             console.log($scope.g);
+          });
+        };
+//
+//                    var id = u._id;
+//                    var c = u.category;
+//                    console.log(c,$scope.category);
+//                    if($scope.d.category == c) {
+//                        console.log(c, $scope.d.category);
+//                    }
+//                    console.log($scope.g)
+
+//                };
+
+
+
+
+
   });

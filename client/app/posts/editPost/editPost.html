@@ -3,12 +3,25 @@
 
 <div class="container">
     <div class="formWrapper">
-        <form class="form-horizontal" novalidate name="form" ng-submit="updatePost()">
+        <form class="form-horizontal" novalidate name="form">
             <div class="form-group paddingTop40">
                 <label for="newPostName" class="col-sm-2 control-label">Post Name</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="newPostName" name="name" placeholder="Post Name" ng-model="post.post_name" required>
                     <span class="help-block ng-binding" ng-show="form.name.$error.required && submitted">Please Fill Name</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="category" class="col-sm-2 control-label">Categories</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="category" ng-model="post.category" required>
+                        <option>html</option>
+                        <option>css</option>
+                        <option>bootstrap</option>
+                        <option>javascript</option>
+                        <option>php</option>
+                    </select>
                 </div>
             </div>
 
@@ -19,7 +32,8 @@
                     <span class="help-block ng-binding" ng-show="form.content.$error.required && submitted">Please Fill Description</span>
                 </div>
             </div>
-            <button class="btn btn-success pull-right">post</button>
+            <button class="btn btn-info pull-right" ng-click="updatePost()">post</button>
+            <button class="btn btn-danger pull-right" ng-click="deletePost()">Delete</button>
         </form>
     </div>
 </div>

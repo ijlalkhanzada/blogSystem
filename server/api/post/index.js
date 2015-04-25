@@ -11,10 +11,11 @@ var router = express.Router();
 router.get('/', controller.index);
 router.get('/:id',auth.hasRole('author'), controller.showAuthorPost);
 router.get('/:id/edit',auth.hasRole('author'), controller.editPost);
+router.get('/:id/filter',auth.hasRole('author'), controller.filterPosts);
 router.post('/', auth.hasRole('author'),controller.create);
-router.put('/:id', controller.update);
+router.put('/:id', auth.hasRole('author'), controller.update);
 router.patch('/:id', controller.update);
-router.delete('/:id', controller.destroy);
+router.delete('/:id', auth.hasRole('author'), controller.destroy);
 
 
 module.exports = router;
