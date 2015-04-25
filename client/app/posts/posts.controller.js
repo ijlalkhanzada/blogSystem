@@ -26,12 +26,12 @@ angular.module('blogSystemApp')
 
 
 
-                $scope.x = function() {
-                    newService.filterPost({id: $scope.category}, function (f) {
-                        $scope.g = f;
-                        console.log($scope.g);
-                    });
-                };
+        $scope.x = function() {
+          newService.filterPost({id: $scope.category}, function (f) {
+             $scope.g = f;
+             console.log($scope.g);
+          });
+        };
 //
 //                    var id = u._id;
 //                    var c = u.category;
