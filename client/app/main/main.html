@@ -1,41 +1,29 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
 <header id="banner">
   <div class="col-lg-12 center-block">
     <div class="container">
       <div class="col-md-10 margin_content">
-        <!--<table class="table table-striped table-hover">-->
-          <!--<tbody>-->
-          <!--<tr>-->
-            <!--<th>Author</th>-->
-            <!--<th>Post Name</th>-->
-            <!--<th>Post Content</th>-->
-            <!--<th>Post Date</th>-->
-          <!--</tr>-->
-          <!--<tr ng-repeat="post in posts" ng-click="view(post)">-->
-            <!--<td>{{post.post_author}}</td>-->
-            <!--<td>{{post.post_name}}</td>-->
-            <!--<td>{{post.post_content | limitTo: 20}}</td>-->
-            <!--<td>{{post.post_date}}</td>-->
-          <!--</tr>-->
-          <!--</tbody>-->
-        <!--</table>-->
-
-        <article class="article" ng-repeat="post in posts">
+        <div class="ui piled segment" ng-repeat="post in posts">
+          <h2 class="ui blue ribbon label "><i class="write Square icon"></i>{{post.post_name}}</h2>
+          <article class="article" >
             <header>
-              <h3>{{post.post_name}}</h3>
-              <span><a href="#"><i class="glyphicon glyphicon-user"></i>{{post.post_author.userName}}</a><i class="glyphicon glyphicon-calendar"></i>{{post.post_date}}</span>
+              <span><h3 href="#"><i class="teal user icon"></i>{{post.post_author.userName}}</h3>
+              <a class="ui teal tag label"><i class="calendar white outline icon"></i>{{post.post_date | date:'medium'}}</a>
+              </span>
             </header>
-          <div class="entry_summary">
-            <section>
-            <p>{{post.post_content | limitTo: 700}}</p>
-            </section>
-            <a ui-sref="login">Read More <i class="glyphicon glyphicon-arrow-right"></i></a>
-          </div>
-        </article>
+            <div class="entry_summary">
+              <section class="content">
+                <p>{{post.post_content | limitTo: 700}}</p>
+              </section>
+              <div class="extra">
+                <div class="ui left floated blue button">
+                  <a ui-sref="login">Read More<i class="right chevron icon"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
-  </div></header>
-
-
-
+  </div>
+</header>
