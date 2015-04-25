@@ -9,9 +9,8 @@ angular.module('blogSystemApp')
             var oldEmail = user.email;
             $scope.update = function(){
               if(oldUserName == user.userName && oldEmail == user.email) {
-                 console.log(oldUserName, oldEmail);
                  User.updateProfile($scope.user);
-                      $state.go('main');
+                 $state.go('main');
               }
             }
         });
