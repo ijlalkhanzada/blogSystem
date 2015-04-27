@@ -1,0 +1,15 @@
+<div class="col-md-12" ng-bind="post.post_content">
+
+
+</div>
+<a href="#">comment</a> <a href="#" style="color: #808080" ng-click="seeComment()">comments{{commentList.length}}</a>
+
+<form >
+    <textarea ng-model="comment.comment_content" required></textarea>
+    <button type="submit" ng-click="addComment()">post comment</button>
+</form>
+        <div ng-repeat="comments in commentList">
+            <p ng-bind="comments.comment_content"></p>
+            <span ng-bind="comments.comment_date"></span>
+        </div>
+

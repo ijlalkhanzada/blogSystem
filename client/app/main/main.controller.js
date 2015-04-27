@@ -5,7 +5,6 @@ angular.module('blogSystemApp')
 
     newService.query(function(postList) {
       $scope.posts = postList;
-//      console.log('yes',postList)
     });
 
         $scope.fff = function(r){
