@@ -10,8 +10,5 @@ angular.module('blogSystemApp')
         $scope.fff = function(r){
             $scope.postId = r._id;
             $state.go('view',{id: $scope.postId});
-
-
-
         };
   });

@@ -1,15 +1,91 @@
-<div class="col-md-12" ng-bind="post.post_content">
+<div ng-include="'components/navbar/navbar.html'"></div>
 
+<div class="col-lg-8 center-block">
+  <div class="container">
+    <div class="col-md-10 margin_content">
+      <div class="ui tall stacked segment">
+        <article class="article" >
+          <div class="ui text shape">
+            <header class="sides">
+              <span><h2 class="ui header side"><i class="teal tasks  icon"></i>{{post.category}}</h2></span>
+            </header>
+          </div>
+          <div class="entry_summary">
+            <section class="content ">
+              <p  ng-bind="post.post_content"></p>
+            </section>
+          </div>
+        </article>
+      </div>
 
-</div>
-<a href="#">comment</a> <a href="#" style="color: #808080" ng-click="seeComment()">comments{{commentList.length}}</a>
+      <div class="ui threaded comments">
+        <h3 class="ui dividing header">Comments <a href="#" style="color: #808080" ng-click="seeComment()">{{commentList.length}}</a></h3>
+        <div class="comment" ng-repeat="comments in commentList">
+          <a class="avatar">
+            <img src="../assets/images/icon.png">
+          </a>
+          <div class="content">
+            <a class="author">Matt</a>
+            <div class="metadata">
+              <span class="date" ng-bind="comments.comment_date"></span>
+            </div>
+            <div class="text">
+              <div ng-bind="comments.comment_content"></div>
+            </div>
+            <div class="actions"  ng-init="comments.showText = false">
+              <a class="reply active" ng-click="comments.showText = !comments.showText">Reply</a>
+            </div>
+            <p ng-show="comments.comment_content.showText"></p>
 
-<form >
-    <textarea ng-model="comment.comment_content" required></textarea>
-    <button type="submit" ng-click="addComment()">post comment</button>
-</form>
-        <div ng-repeat="comments in commentList">
-            <p ng-bind="comments.comment_content"></p>
-            <span ng-bind="comments.comment_date"></span>
+            <form class="ui reply form">
+              <div class="field">
+                <textarea type="text" ng-show="comments.showText"></textarea>
+                <button type="submit" ng-click="addCommentRep()" class="ui primary submit labeled icon button" ng-show="comments.showText" >
+                  <i class="icon edit"></i> Add Reply
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+          <!--
+                    <div class="actions" ng-init="comments.showText = false">
+                      <p ng-show="comments.comment_content.showText"></p>
+                    </div>
+          -->
 
+
+          <div class="comment">
+            <div class="comments">
+              <div class="comment">
+                <a class="avatar">
+                  <img src="../assets/images/icon2.png">
+                </a>
+                <div class="content">
+                  <a class="author">Jenny Hess</a>
+                  <div class="metadata">
+                    <span class="date">Just now</span>
+                  </div>
+                  <div class="text">
+                    Elliot you are always so right :)
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        <form class="ui reply form">
+          <div class="field">
+            <textarea ng-model="comment.comment_content" required></textarea>
+          </div>
+          <button class="ui blue labeled submit icon button" type="submit" ng-click="addComment()">
+            <i class="icon edit"></i> Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
