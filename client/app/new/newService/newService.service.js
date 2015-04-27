@@ -27,6 +27,14 @@ angular.module('blogSystemApp')
               id:'@_id',
               controller: 'filter'
           }
+      },
+         fullPost: {
+          method: 'GET',
+              isArray: false,
+          params: {
+              id:'@_id',
+              controller: 'full'
+          }
       }
     }
     );
