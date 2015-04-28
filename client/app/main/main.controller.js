@@ -7,8 +7,8 @@ angular.module('blogSystemApp')
       $scope.posts = postList;
     });
 
-        $scope.fff = function(r){
-            $scope.postId = r._id;
+        $scope.fullPost = function(post){
+            $scope.postId = post._id;
             $state.go('view',{id: $scope.postId});
         };
   });

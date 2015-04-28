@@ -4,12 +4,22 @@
   <div class="container">
     <div class="col-md-10 margin_content">
       <div class="ui tall stacked segment">
+        <h3 class="ui blue ribbon label "><i class="write Square icon"></i>{{post.post_name}}</h3>
+
         <article class="article" >
-          <div class="ui text shape">
-            <header class="sides">
-              <span><h2 class="ui header side"><i class="teal tasks  icon"></i>{{post.category}}</h2></span>
-            </header>
+          <div class="">
+              <header class="header">
+                  <h2 class="ui header left aligned">
+                    <div class="column"><h3><i class="tasks blue icon"></i>{{post.category}}</h3></div>
+                  <div class="content">
+                    <!--{{post.category}}-->
+                    <div class="sub header">{{post.post_date | date:'medium'}}</div>
+                    <div class="sub header">{{post.post_author.userName}}</div>
+                  </div>
+                </h2>
+              </header>
           </div>
+
           <div class="entry_summary">
             <section class="content ">
               <p  ng-bind="post.post_content"></p>
@@ -29,9 +39,7 @@
             <div class="metadata">
               <span class="date" ng-bind="post.post_date | date:'medium'"></span>
               <div >
-
                 <i class=" write icon link" data-content="Top Center" data-position="top center"></i>
-
               </div>
             </div>
 
@@ -62,13 +70,13 @@
             </div>
           </div>
           <div class="comments">
-            <form class="ui reply form"  ng-click="replyComment()">
+            <form class="ui reply form">
               <div class="field">
                 <textarea id="replyTextArea" ng-show="comments.showText" ng-model="x.comment_content" required></textarea>
               </div>
               <div class="actions">
 
-                <button type="submit"  class="ui primary submit labeled icon button" ng-show="comments.showText" >
+                <button type="submit"  ng-click="replyComment()" class="ui primary submit labeled icon button" ng-show="comments.showText" >
                   <i class="icon edit"></i> Send Reply
                 </button>
               </div>
@@ -77,15 +85,18 @@
         </div>
 
         <!---------------------------------Submit Form--------------->
+<div class="comment">
 
-        <form class="ui reply form">
-          <div class="field">
-            <textarea ng-model="comment.comment_content" placeholder="Write a new comment here" required></textarea>
-          </div>
-          <button type="submit" class="ui blue labeled submit icon button"  ng-click="addComment()">
-            <i class="icon edit"></i> Submit
-          </button>
-        </form>
+  <form class="ui reply form">
+    <div class="field">
+      <textarea ng-model="comment.comment_content" placeholder="Write a new comment here" required></textarea>
+    </div>
+    <button type="submit" class="ui blue labeled submit icon button"  ng-click="addComment()">
+      <i class="icon edit"></i> Submit
+    </button>
+  </form>
+
+</div>
       </div>
     </div>
   </div>
