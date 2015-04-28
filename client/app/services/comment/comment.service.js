@@ -12,7 +12,7 @@ angular.module('blogSystemApp')
                         id: '@_id'
                     }
                 },
-                replyComment: {
+                getReplyComment: {
                     method: 'GET',
                     isArray: true,
                     params: {

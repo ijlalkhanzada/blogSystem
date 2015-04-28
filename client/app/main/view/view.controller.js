@@ -9,7 +9,7 @@ angular.module('blogSystemApp')
                 $scope.commentList = list;
             });
 
-          $('.shape')
+            $('.shape')
             .shape('set next side', '.side')
             .shape('flip up');
 
@@ -24,7 +24,7 @@ angular.module('blogSystemApp')
 
 
           $scope.commentBody = function(commentt){
-            comment.replyComment({id: commentt},function(replycomment){
+            comment.getReplyComment({id: commentt._id},function(replycomment){
               $scope.replycomment = replycomment;
             })
           };
@@ -33,7 +33,11 @@ angular.module('blogSystemApp')
           $scope.reply = function(comm){
             $scope.x.comment_parent = comm._id;
             $scope.replyComment = function(){
-              comment.save($scope.x);
+                comment.save($scope.x);
+                comment.getReplyComment({id: comm._id},function(replycomment){
+                    $scope.replycomment = replycomment;
+                    $scope.x.comment_content = '';
+                })
 
             }
           }
