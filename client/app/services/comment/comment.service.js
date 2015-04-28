@@ -11,6 +11,14 @@ angular.module('blogSystemApp')
                     params: {
                         id: '@_id'
                     }
+                },
+                replyComment: {
+                    method: 'GET',
+                    isArray: true,
+                    params: {
+                        id:'@_id',
+                        controller: 'reply'
+                    }
                 }
             }
         );
