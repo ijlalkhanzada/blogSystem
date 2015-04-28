@@ -39,11 +39,9 @@
               <div ng-bind="comments.comment_content"></div>
             </div>
             <div class="actions"  ng-init="comments.showText = false">
-              <a class="reply active"  ng-click="reply(comments); commentBody(comments._id);comments.showText = !comments.showText"><i class="reply icon"></i> <b>Reply</b></a>
-            </div>
+                <a class="reply active"  ng-click="reply(comments); commentBody(comments);comments.showText = !comments.showText"><i class="reply icon"></i> <b>Reply</b></a>            </div>
           </div>
-          <div class="comment" ng-repeat="reply in replycomment | filter:{'comment_parent':  comments._id}:true ">
-            <div class="comments">
+            <div class="comment" ng-repeat="reply in replycomment | filter:{'comment_parent':  comments._id}:true ">            <div class="comments">
               <div class="comment">
                 <a class="avatar">
                   <img src="../assets/images/icon2.png">
