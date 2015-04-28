@@ -26,12 +26,28 @@ angular.module('blogSystemApp')
                 comment.save($scope.comment);
                 comment.query({id: id}, function(list){
                 $scope.commentList = list;
-                $scope.post = '';
+                  console.log( $scope.commentList);
+                $scope.comment = '';
                 });
             };
-            $scope.addCommentRep = function(){
-             console.log('yes')
 
-            };
+
+          $scope.commentBody = function(commentt){
+            console.log("comment Id :", commentt);
+            comment.replyComment({id: commentt},function(replycomment){
+              $scope.replycomment = replycomment;
+              console.log("replycomment :", replycomment)
+            })
+          };
+
+          $scope.x = {};
+          $scope.reply = function(comm){
+            $scope.x.comment_parent = comm._id;
+            $scope.replyComment = function(){
+              comment.save($scope.x);
+
+            }
+          }
+
         })
   });
