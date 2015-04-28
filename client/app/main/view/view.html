@@ -35,16 +35,8 @@
             <div class="actions"  ng-init="comments.showText = false">
               <a class="reply active"  ng-click="reply(comments); commentBody(comments._id);comments.showText = !comments.showText">Reply</a>
             </div>
-            <form class="ui reply form">
-              <div class="field">
-                <textarea type="text" ng-show="comments.showText" ng-model="x.comment_content" required></textarea>
-                <button type="submit" ng-click="replyComment() " class="ui primary submit labeled icon button" ng-show="comments.showText" >
-                  <i class="icon edit"></i> Add Reply
-                </button>
-              </div>
-            </form>
           </div>
-          <div class="comment" ng-repeat="reply in replycomment | filter:{'comment_parent':  comments._id}:true ">
+          <div class="comment" ng-repeat="reply in replycomment | filter:{'comment_parent':  comments._id} ">
             <div class="comments">
               <div class="comment">
                 <a class="avatar">
@@ -60,17 +52,26 @@
                       <div>{{reply.comment_content}}</div>
                     </div>
                   </div>
-                  <div class="actions">
-                    <a class="reply active"  ng-click="reply(comments); commentBody(comments._id);comments.showText = !comments.showText">Reply</a>
-                  </div>
+                  <!--<div class="actions">-->
+                    <!--<a class="reply active"  ng-click="reply(comments); commentBody(comments._id);comments.showText = !comments.showText">Reply</a>-->
+                  <!--</div>-->
                 </div>
               </div>
             </div>
           </div>
+            <form class="ui reply form">
+                <div class="field">
+                    <textarea type="text" ng-show="comments.showText" ng-model="x.comment_content" placeholder="Write a comment reply here" required></textarea>
+                    <button type="submit" ng-click="replyComment() " class="ui primary submit labeled icon button" ng-show="comments.showText" >
+                        <i class="icon edit"></i> Add Reply
+                    </button>
+                </div>
+            </form>
+
         </div>
         <form class="ui reply form">
           <div class="field">
-            <textarea ng-model="comment.comment_content" required></textarea>
+            <textarea ng-model="comment.comment_content" placeholder="Write a new comment here" required></textarea>
           </div>
           <button type="submit" class="ui blue labeled submit icon button"  ng-click="addComment()">
             <i class="icon edit"></i> Submit

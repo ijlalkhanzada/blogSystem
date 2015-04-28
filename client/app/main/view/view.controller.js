@@ -7,36 +7,25 @@ angular.module('blogSystemApp')
             $scope.post = post;
             comment.query({id: id}, function(list){
                 $scope.commentList = list;
-                console.log($scope.length, id);
             });
-
-          newService.query(function(postList) {
-            $scope.posts = postList;
-            console.log('view',$scope.posts)
-          });
-
 
           $('.shape')
             .shape('set next side', '.side')
-            .shape('flip up')
+            .shape('flip up');
 
-          ;
             $scope.addComment = function(){
                 $scope.comment.comment_post_id = id;
                 comment.save($scope.comment);
                 comment.query({id: id}, function(list){
                 $scope.commentList = list;
-                  console.log( $scope.commentList);
                 $scope.comment = '';
                 });
             };
 
 
           $scope.commentBody = function(commentt){
-            console.log("comment Id :", commentt);
             comment.replyComment({id: commentt},function(replycomment){
               $scope.replycomment = replycomment;
-              console.log("replycomment :", replycomment)
             })
           };
 
