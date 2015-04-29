@@ -8,10 +8,10 @@ angular.module('blogSystemApp')
             var oldUserName = user.userName;
             var oldEmail = user.email;
             $scope.update = function(){
-              if(oldUserName == user.userName && oldEmail == user.email) {
+              if(oldUserName === user.userName && oldEmail === user.email) {
                  User.updateProfile($scope.user);
                  $state.go('main');
               }
-            }
+            };
         });
   });

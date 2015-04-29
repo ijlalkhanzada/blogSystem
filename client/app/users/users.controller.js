@@ -7,7 +7,7 @@ angular.module('blogSystemApp')
         $scope.b = profile;
         var id = profile._id;
         console.log($scope.b.userName, id);
-        $state.go('editUser',{id: id})
+        $state.go('editUser',{id: id});
 
     };
   });

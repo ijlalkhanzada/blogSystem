@@ -1,6 +1,6 @@
 'use strict';
 angular.module('blogSystemApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth, $state) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'

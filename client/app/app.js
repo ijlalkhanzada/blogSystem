@@ -10,7 +10,7 @@ angular.module('blogSystemApp', [
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
-      .otherwise('/')
+      .otherwise('/');
 
 
     $locationProvider.html5Mode(true);

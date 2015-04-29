@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('ViewCtrl', function ($scope, newService, comment, $state, Auth) {
+  .controller('ViewCtrl', function ($scope, newService, comment, $state) {
         newService.fullPost({id: $state.params.id}, function(post){
             var id = post._id;
             $scope.post = post;
@@ -22,21 +22,21 @@ angular.module('blogSystemApp')
           $scope.commentBody = function(commentt){
             comment.getReplyComment({id: commentt._id},function(replycomment){
               $scope.replycomment = replycomment;
-            })
+            });
           };
 
-          $scope.x = {};
+          $scope.commentData = {};
           $scope.reply = function(comm){
-            $scope.x.comment_parent = comm._id;
+            $scope.commentData.comment_parent = comm._id;
             $scope.replyComment = function(){
-                comment.save($scope.x);
+                comment.save($scope.commentData);
                 comment.getReplyComment({id: comm._id},function(replycomment){
                     $scope.replycomment = replycomment;
-                    $scope.x.comment_content = '';
-                })
+                    $scope.commentData.comment_content = '';
+                });
 
-            }
+            };
           };
 
-        })
+        });
   });

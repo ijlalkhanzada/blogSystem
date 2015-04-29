@@ -7,7 +7,7 @@ angular.module('blogSystemApp')
 
     $scope.register = function(form) {
       $scope.submitted = true;
-      if(form.$valid && ($scope.user.password == $scope.user.confirmPassword)) {
+      if(form.$valid && ($scope.user.password === $scope.user.confirmPassword)) {
         Auth.createUser({
           userName: $scope.user.name,
           email: $scope.user.email,

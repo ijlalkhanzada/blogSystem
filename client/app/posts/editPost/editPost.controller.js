@@ -8,12 +8,12 @@ angular.module('blogSystemApp')
 
          $scope.updatePost = function(){
              newService.userProfileUp($scope.post);
-             $state.go('posts')
+             $state.go('posts');
          };
 
          $scope.deletePost = function(){
              newService.delete({id: id});
              $state.go('posts');
-         }
+         };
      });
   });
