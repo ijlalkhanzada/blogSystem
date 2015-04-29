@@ -11,7 +11,7 @@ var CommentSchema = new Schema({
   comment_author_ip: String,
   comment_date: { type: Date, default: Date.now },
   comment_gate_gmt: { type: Date, default: Date.now },
-  comment_content: String,
+  comment_content: {type:String, required: 'Content is required'},
   comment_karma: String,
   comment_approved: Boolean,
   comment_agent: String,

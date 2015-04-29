@@ -4,7 +4,7 @@ angular.module('blogSystemApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('view', {
-        url: '/view/post/:id',
+        url: '/posts/:id',
         templateUrl: 'app/main/view/view.html',
         controller: 'ViewCtrl'
       });

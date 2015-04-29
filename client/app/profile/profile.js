@@ -7,5 +7,5 @@ angular.module('blogSystemApp')
         url: '/admin/profile/:id',
         templateUrl: 'app/profile/profile.html',
         controller: 'ProfileCtrl'
-      })
+      });
   });

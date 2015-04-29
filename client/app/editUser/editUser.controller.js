@@ -8,9 +8,9 @@ angular.module('blogSystemApp')
           $scope.user = user;
 
           $scope.userProfile = function(){
-              if(oldUserName == user.userName && oldEmail == user.email) {
+              if(oldUserName === user.userName && oldEmail === user.email) {
                   User.updateProfile($scope.user);
-                  $state.go('user')
+                  $state.go('user');
               }
           };
           angular.element(".dropdown").dropdown(
