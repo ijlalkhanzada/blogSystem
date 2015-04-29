@@ -7,8 +7,11 @@
           <h2 class="ui blue ribbon label "><i class="write Square icon"></i>{{post.post_name}}</h2>
           <article class="article" >
             <header>
-              <span><h3 href="#"><i class="teal user icon"></i>{{post.post_author.userName}}</h3>
-              <a class="ui teal tag label"><i class="calendar white outline icon"></i>{{post.post_date | date:'medium'}}</a>
+              <span><h3 href="#" ><a class="ui teal tag label"><i class="white user icon"></i>{{post.post_author.userName}}</a>
+                <a class="ui teal tag label"><i class="calendar white outline icon"></i>{{post.post_date | date:'medium'}}</a>
+
+              </h3>
+              <!--<a class="ui teal tag label"><i class="calendar white outline icon"></i>{{post.post_date | date:'medium'}}</a>-->
               </span>
             </header>
             <div class="entry_summary">

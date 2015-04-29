@@ -13,5 +13,10 @@ angular.module('blogSystemApp')
                  $state.go('main');
               }
             }
+          angular.element(".dropdown").dropdown(
+            {
+              transition: 'drop'
+            }
+          );
         });
   });

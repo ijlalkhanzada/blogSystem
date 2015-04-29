@@ -1,25 +1,27 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
 
+<div ng-include="'components/navbar/navbar.html'"></div>
 <div class="col-lg-8 center-block">
   <div class="container">
-    <div class="col-md-10 margin_content">
+    <div class="col-md-12 margin_content">
       <div class="ui tall stacked segment">
-        <h3 class="ui blue ribbon label "><i class="write Square icon"></i>{{post.post_name}}</h3>
 
+        <h3 class="ui blue ribbon label "><i class="write Square icon"></i>{{post.post_name}}</h3>
         <article class="article" >
           <div class="">
               <header class="header">
                   <h2 class="ui header left aligned">
                     <div class="column"><h3><i class="tasks blue icon"></i>{{post.category}}</h3></div>
                   <div class="content">
-                    <!--{{post.category}}-->
+                    &lt;!&ndash;{{post.category}}&ndash;&gt;
                     <div class="sub header">{{post.post_date | date:'medium'}}</div>
-                    <div class="sub header">{{post.post_author.userName}}</div>
+                    <h2 class="ui header">
+                      <img src="../assets/images/icon.png" class="ui circular image">
+                      {{post.post_author. userName}}
+                    </h2>
                   </div>
                 </h2>
               </header>
           </div>
-
           <div class="entry_summary">
             <section class="content ">
               <p  ng-bind="post.post_content"></p>
@@ -27,7 +29,6 @@
           </div>
         </article>
       </div>
-
       <div class="ui threaded comments">
         <h3 class="ui dividing header">Comments <a href="#" style="color: #808080" ng-click="seeComment()">{{commentList.length}}</a></h3>
         <div class="comment" ng-repeat="comments in commentList">
@@ -38,8 +39,15 @@
             <a class="author">Matt</a>
             <div class="metadata">
               <span class="date" ng-bind="post.post_date | date:'medium'"></span>
-              <div >
-                <i class=" write icon link" data-content="Top Center" data-position="top center"></i>
+              <div class="ui icon buttons">
+                <div class="ui top left pointing dropdown button" ui-dropdown>
+                  <i class="write icon"></i>
+                  <div class="menu">
+                    <div class="item"><i class="edit icon"></i>Edit User</div>
+                    <div class="item"><i class="delete icon"></i>Remove User</div>
+                    <div class="item"><i class="hide icon"></i>Make Invisible</div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -47,7 +55,7 @@
               <div ng-bind="comments.comment_content"></div>
             </div>
             <div class="actions"  ng-init="comments.showText = false">
-                <a class="reply active"  ng-click="reply(comments); commentBody(comments);comments.showText = !comments.showText"><i class="reply icon"></i> <b>Reply</b></a>            </div>
+                <a class="reply active"  ng-click="reply(comments); commentBody(comments);comments.showText = !comments.showText"><i class="forward mail icon"></i> <b>Reply</b></a>            </div>
           </div>
             <div class="comment" ng-repeat="reply in replycomment | filter:{'comment_parent':  comments._id}:true ">            <div class="comments">
               <div class="comment">
@@ -84,7 +92,7 @@
           </div>
         </div>
 
-        <!---------------------------------Submit Form--------------->
+        <!--&lt;!&ndash;-------------------------------Submit Form-------------&ndash;&gt;-->
 <div class="comment">
 
   <form class="ui reply form">
@@ -101,3 +109,6 @@
     </div>
   </div>
 </div>
+
+
+

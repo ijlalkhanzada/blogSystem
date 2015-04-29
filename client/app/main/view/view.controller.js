@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('ViewCtrl', function ($scope, newService, comment, $state, Auth) {
+  .controller('ViewCtrl', function ($scope, newService, comment, $state, Auth, $timeout) {
         newService.fullPost({id: $state.params.id}, function(post){
             var id = post._id;
             $scope.post = post;
@@ -37,6 +37,6 @@ angular.module('blogSystemApp')
 
             }
           };
-
         })
+
   });
