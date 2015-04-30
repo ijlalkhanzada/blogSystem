@@ -1,0 +1,30 @@
+<div class="col-lg-12 center-block">
+    <div class="container">
+        <div class="col-md-10 margin_content">
+            <div class="ui piled segment" ng-repeat="category in categoryPost">
+                <h2 class="ui blue ribbon label "><i class="write Square icon"></i>{{category.post_name}}</h2>
+                <article class="article" >
+                    <header>
+              <span><h3 href="#" ><a class="ui teal tag label"><i class="white user icon"></i>{{category.post_author.userName}}</a>
+                  <a class="ui teal tag label"><i class="calendar white outline icon"></i>{{category.post_date | date:'medium'}}</a>
+
+              </h3>
+              <!--<a class="ui teal tag label"><i class="calendar white outline icon"></i>{{post.post_date | date:'medium'}}</a>-->
+              </span>
+                    </header>
+                    <div class="entry_summary">
+                        <section class="content">
+                            <p>{{category.post_content | limitTo: 700}}</p>
+                        </section>
+                        <div class="extra">
+                            <div class="ui left floated blue button">
+                                <a ng-click="fullPost(category)">Read More<i class="right chevron icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+</header>

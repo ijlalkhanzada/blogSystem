@@ -27,9 +27,8 @@ angular.module('blogSystemApp')
         $scope.categories = categories.query();
 
         $scope.x = function() {
-          newService.filterPost({id: $scope.category}, function (f) {
-             $scope.g = f;
-             console.log($scope.g);
+          newService.filterPost({id: $scope.category}, function (categoryPost) {
+             $scope.ctg = categoryPost;
           });
         };
 //

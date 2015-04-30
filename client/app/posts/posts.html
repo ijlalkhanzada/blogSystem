@@ -38,11 +38,11 @@
         <th>Post Content</th>
         <th>Post Date</th>
       </tr>
-      <tr ng-repeat="d in g | filter:category:d.category" ng-click="x(d)">
-        <td>{{d.post_author}}</td>
-        <td>{{d.post_name}}</td>
-        <td>{{d.post_content | limitTo: 20}}</td>
-        <td>{{d.post_date}}</td>
+      <tr ng-repeat="category in ctg">
+        <td>{{category.post_author}}</td>
+        <td>{{category.post_name}}</td>
+        <td>{{category.post_content | limitTo: 20}}</td>
+        <td>{{category.post_date}}</td>
 
       </tr>
       </tbody>
