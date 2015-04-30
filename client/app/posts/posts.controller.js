@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('PostsCtrl', function ($scope, newService, Auth , $state) {
+  .controller('PostsCtrl', function ($scope, newService, Auth , $state, categories) {
 
         var userID = Auth.getCurrentUser()._id;
         var userRole = Auth.getCurrentUser().role;
@@ -24,12 +24,11 @@ angular.module('blogSystemApp')
                $state.go('editPost',{id: id});
         };
 
-
+        $scope.categories = categories.query();
 
         $scope.x = function() {
-          newService.filterPost({id: $scope.category}, function (f) {
-             $scope.g = f;
-             console.log($scope.g);
+          newService.filterPost({id: $scope.category}, function (categoryPost) {
+             $scope.ctg = categoryPost;
           });
         };
 //

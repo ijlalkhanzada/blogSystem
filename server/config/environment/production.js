@@ -18,6 +18,6 @@ module.exports = {
     uri:    process.env.MONGOLAB_URI ||
             process.env.MONGOHQ_URL ||
             process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
-           'mongodb://admin:admin@ds035310.mongolab.com:35310/blogsystemappbakerz'
+            'mongodb://localhost/blogsystem'
   }
 };

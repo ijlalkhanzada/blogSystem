@@ -23,12 +23,8 @@
             <label for="category" class="col-sm-2 control-label">Categories</label>
             <div class="col-sm-10">
                 <select class="form-control" id="category" ng-model="post.category" required>
-                    <option>HTML</option>
-                    <option>CSS</option>
-                    <option>BOOTSTRAP</option>
-                    <option>JAVASCRIPT</option>
-                    <option>PHP</option>
-                    <option>ANGULAR JS</option>
+                    <option ng-repeat="category in categories">{{category.name}}</option>
+
                 </select>
             </div>
         </div>
@@ -40,12 +36,19 @@
               <span class="help-block ng-binding" ng-show="form.content.$error.required && submitted">Please Fill Description</span>
             </div>
         </div>
+        <a href="#" style="float: right;" ng-click="show = !show">Add Category</a>
         <button class="btn btn-success pull-right">post</button>
     </form>
   </div>
-
-
 </div>
+        <div class="container">
+          <div class="formWrapper" style="  width: 83%; float: right;" ng-show="show">
+            <form class="form-horizontal" name="catForm" ng-submit="addCategoriesTo()">
+                <input type="text" class="form-control" ng-model="obj.name" placeholder="Add Category Here..." required>
+                <button type="submit" class="btn btn-success">create category</button>
+            </form>
+          </div>
+        </div>
 
 
 
