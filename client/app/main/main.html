@@ -1,17 +1,17 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<header id="banner">
-  <div class="col-lg-12 center-block">
-    <div class="container">
+<sidebar-nav></sidebar-nav>
+
+<div class="container">
       <div class="col-md-10 margin_content">
         <div class="ui piled segment" ng-repeat="post in posts">
           <h2 class="ui blue ribbon label "><i class="write Square icon"></i>{{post.post_name}}</h2>
           <article class="article" >
             <header>
-              <span><h3 href="#" ><a class="ui teal tag label"><i class="white user icon"></i>{{post.post_author.userName}}</a>
+              <span>
+                <h3>
+                <a class="ui teal tag label"><i class="white user icon"></i>{{post.post_author.userName}}</a>
                 <a class="ui teal tag label"><i class="calendar white outline icon"></i>{{post.post_date | date:'medium'}}</a>
-
               </h3>
-              <!--<a class="ui teal tag label"><i class="calendar white outline icon"></i>{{post.post_date | date:'medium'}}</a>-->
               </span>
             </header>
             <div class="entry_summary">
@@ -19,14 +19,15 @@
                 <p>{{post.post_content | limitTo: 700}}</p>
               </section>
               <div class="extra">
-                <div class="ui left floated blue button">
-                  <a ng-click="fullPost(post)">Read More<i class="right chevron icon"></i></a>
+                <div class="ui left floated blue button" ng-click="fullPost(post)"  >
+                  <a >Read More<i class="right chevron icon"></i></a>
                 </div>
               </div>
             </div>
           </article>
         </div>
       </div>
-    </div>
-  </div>
-</header>
+  <div class="col-md-1"></div>
+
+</div>
+
