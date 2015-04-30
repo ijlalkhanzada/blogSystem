@@ -12,7 +12,7 @@ angular.module('blogSystemApp')
        $state.go('view',{id: $scope.postId});
     };
     $scope.categories = categories.query();
-    $scope.x = function(name) {
+    $scope.categoryName = function(name) {
        $state.go('filterPosts',{id: name})
     };
   });
