@@ -7,6 +7,13 @@ angular.module('blogSystemApp')
             $scope.post = post;
             comment.query({id: id}, function(list){
                 $scope.commentList = list;
+                console.log(list);
+//              var t = "";
+//              var u;
+//              for(u in list){
+//                t = list[u];
+//                console.log(t._id);
+//              }
             });
 
             $scope.addComment = function(){
@@ -25,14 +32,14 @@ angular.module('blogSystemApp')
             })
           };
 
-          $scope.x = {};
+          $scope.commentData = {};
           $scope.reply = function(comm){
-            $scope.x.comment_parent = comm._id;
+            $scope.commentData.comment_parent = comm._id;
             $scope.replyComment = function(){
-                comment.save($scope.x);
+                comment.save($scope.commentData);
                 comment.getReplyComment({id: comm._id},function(replycomment){
                     $scope.replycomment = replycomment;
-                    $scope.x.comment_content = '';
+                    $scope.commentData.comment_content = '';
                 })
 
             }

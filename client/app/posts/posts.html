@@ -29,12 +29,8 @@
   <div class="col-md-10 margin_content">
   <table class="table table-striped table-hover">
       <tbody>
-      <select class="form-control" id="category" ng-model="category" ng-change="x()" required>
-      <option>html</option>
-      <option>css</option>
-      <option>bootstrap</option>
-      <option>javascript</option>
-      <option>php</option>
+      <select class="form-control" id="category" ng-model="category" ng-change="x()"  required>
+          <option ng-repeat="category in categories">{{category.name}}</option>
       </select>
       <tr>
         <th>Author</th>
