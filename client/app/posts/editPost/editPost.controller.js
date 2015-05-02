@@ -10,10 +10,9 @@ angular.module('blogSystemApp')
              newService.userProfileUp($scope.post);
              $state.go('posts');
          };
-
-         $scope.deletePost = function(){
-             newService.delete({id: id});
-             $state.go('posts');
-         };
      });
+     $scope.deletePost = function(){
+          newService.delete({id: $state.params.id});
+          $state.go('posts');
+     };
   });

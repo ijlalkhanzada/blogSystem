@@ -13,11 +13,11 @@ angular.module('blogSystemApp')
                   $state.go('user');
               }
           };
-          angular.element(".dropdown").dropdown(
-            {
-              transition: 'drop'
-            }
-          );
-        });
 
+        });
+        angular.element(".dropdown").dropdown(
+            {
+                transition: 'drop'
+            }
+        );
   });

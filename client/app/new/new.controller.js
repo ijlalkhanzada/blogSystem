@@ -19,12 +19,11 @@ angular.module('blogSystemApp')
         $scope.categories = categories.query();
         $scope.obj = {};
         $scope.addCategoriesTo = function(){
-              categories.save($scope.obj, function (name) {
-                console.log(name);
-                  $scope.obj.name = '';
-              });
-              $scope.categories = categories.query();
-
+          categories.save($scope.obj, function (name) {
+            console.log(name);
+            $scope.obj.name = '';
+          });
+          $scope.categories = categories.query();
         }
 
   });
