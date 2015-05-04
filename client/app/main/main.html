@@ -1,11 +1,6 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
-
-<div style="margin-top: 75px;">
-  <a href="#" ng-repeat="category in categories" ng-click="categoryName(category.name)">{{category.name +' , '}}</a>
-</div>
-
-<div class="col-lg-11 center-block">
+<side-bar></side-bar>
+<!--<div class="col-lg-11 center-block">-->
   <div class="container">
     <div class="col-md-10 margin_content">
         <div class="ui piled segment" ng-repeat="post in posts">
@@ -36,4 +31,4 @@
 
 </div>
 
-</div>
+<!--</div>-->

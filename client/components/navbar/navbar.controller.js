@@ -18,4 +18,11 @@ angular.module('blogSystemApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+      console.log('Start Toggle Menu');
+    });
+
   });

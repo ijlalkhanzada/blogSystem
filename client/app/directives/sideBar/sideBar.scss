@@ -1,0 +1,79 @@
+.wrapper{
+  width: 980px;
+  margin: 0 auto;
+  color: white ;
+
+  .sidebar-wrapper {
+    margin-left: -46px !important;
+    left: 45px;
+    width: 150px;
+    background: #222;
+    position: fixed;
+    height: 100%;
+    z-index: 10000;
+    transition: all .4s ease 0s;
+  }
+
+}
+.ui.accordion .title:not(.ui){
+  color: #ffffff !important;
+}
+ul{
+  li{
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+}
+.fixed.launch.button {
+  position: fixed;
+  top: 63px;
+  left: 149px;
+  width: 55px;
+  height: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-transition: 0.3s width ease, 0.5s transform ease;
+  -moz-transition: 0.3s width ease, 0.5s transform ease;
+  -o-transition: 0.3s width ease, 0.5s transform ease;
+  -ms-transition: 0.3s width ease, 0.5s transform ease;
+  transition: 0.3s width ease, 0.5s transform ease;
+}
+.wrapper .sidebar-wrapper{
+  img{
+    width: 75px !important;
+    padding: 5px;
+
+  }
+  .active.item {
+    background: rgba(0,0,0,.05);
+    opacity: 1;
+    box-shadow: none;
+  }
+}
+.ui.list{
+  border-bottom: 1px solid #808080;
+  .item .header {
+    color: rgba(201, 201, 201, 0.80);
+    padding-bottom: 5px;
+  }
+
+}
+.fixed.launch.button:hover {
+  width: 130px;
+}
+.ui.accordion, .ui.accordion .accordion{
+  padding: 10px;
+}
+.ui.list:first-child{
+  text-align: center;
+  image{
+    padding-top: 10px;
+  }
+
+}
+#menu-toggle{
+    i.icon{
+      width: 3.23em;
+
+    }
+  }
+
