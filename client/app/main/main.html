@@ -1,5 +1,5 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div>
+<div style="margin-top: 75px;">
   <a href="#" ng-repeat="category in categories" ng-click="categoryName(category.name)">{{category.name +' , '}}</a>
 </div>
 
@@ -11,9 +11,9 @@
             <header>
               <span>
                 <h3>
-                <a class="ui teal tag label"><i class="white user icon"></i>{{post.post_author.userName}}</a>
-                <a class="ui teal tag label"><i class="calendar white outline icon"></i>{{post.post_date | date:'medium'}}</a>
-              </h3>
+                  <a class="ui teal tag label"><i class="white user icon"></i>{{post.post_author.userName}}</a>
+                  <a class="ui teal tag label"><i class="calendar white outline icon"></i>{{post.post_date | date:'medium'}}</a>
+                </h3>
               </span>
             </header>
             <div class="entry_summary">

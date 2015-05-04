@@ -32,7 +32,7 @@ angular.module('blogSystemApp')
                         getReplyComment(index, list);
                     }
                 });
-        };
+        }
 
         $scope.commentData = {};
         $scope.reply = function(comm){

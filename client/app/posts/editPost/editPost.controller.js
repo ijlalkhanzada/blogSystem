@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('EditPostCtrl', function ($scope, newService, $state) {
+  .controller('EditPostCtrl', function ($scope, newService, $state, categories) {
      newService.getPost({id: $state.params.id}, function(post){
          $scope.post = post;
          var id = post._id;
@@ -11,7 +11,9 @@ angular.module('blogSystemApp')
              $state.go('posts');
          };
      });
-     $scope.deletePost = function(){
+        $scope.categories = categories.query();
+
+        $scope.deletePost = function(){
           newService.delete({id: $state.params.id});
           $state.go('posts');
      };

@@ -20,10 +20,11 @@ angular.module('blogSystemApp')
         $scope.obj = {};
         $scope.addCategoriesTo = function(){
           categories.save($scope.obj, function (name) {
-            console.log(name);
-            $scope.obj.name = '';
+              console.log(name);
+              $scope.categories = categories.query();
+              $scope.obj.name = '';
+              $scope.show = false;
           });
-          $scope.categories = categories.query();
         }
 
   });

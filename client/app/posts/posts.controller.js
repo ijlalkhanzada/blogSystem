@@ -23,7 +23,6 @@ angular.module('blogSystemApp')
                var id = post._id;
                $state.go('editPost',{id: id});
         };
-
         $scope.categories = categories.query();
 
         $scope.x = function() {
@@ -31,19 +30,5 @@ angular.module('blogSystemApp')
              $scope.ctg = categoryPost;
           });
         };
-//
-//                    var id = u._id;
-//                    var c = u.category;
-//                    console.log(c,$scope.category);
-//                    if($scope.d.category == c) {
-//                        console.log(c, $scope.d.category);
-//                    }
-//                    console.log($scope.g)
-
-//                };
-
-
-
-
 
   });
