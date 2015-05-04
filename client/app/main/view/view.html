@@ -1,8 +1,9 @@
 
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div class="col-lg-8 center-block">
+
+<div class="col-lg-11 center-block">
   <div class="container">
-    <div class="col-md-12 margin_content">
+    <div class="col-md-10 margin_content">
       <div class="ui tall stacked segment">
 
         <h3 class="ui blue ribbon label "><i class="write Square icon"></i>{{post.post_name}}</h3>
@@ -12,7 +13,7 @@
                   <h2 class="ui header left aligned">
                     <div class="column"><h3><i class="tasks blue icon"></i>{{post.category}}</h3></div>
                   <div class="content">
-                    &lt;!&ndash;{{post.category}}&ndash;&gt;
+                    {{post.category}}
                     <div class="sub header">{{post.post_date | date:'medium'}}</div>
                     <h2 class="ui header">
                       <img src="../assets/images/icon.png" class="ui circular image">

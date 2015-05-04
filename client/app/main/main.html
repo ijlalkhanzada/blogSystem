@@ -1,10 +1,13 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+
+
 <div>
   <a href="#" ng-repeat="category in categories" ng-click="categoryName(category.name)">{{category.name +' , '}}</a>
 </div>
 
-<div class="container">
-      <div class="col-md-10 margin_content">
+<div class="col-lg-11 center-block">
+  <div class="container">
+    <div class="col-md-10 margin_content">
         <div class="ui piled segment" ng-repeat="post in posts">
           <h2 class="ui blue ribbon label "><i class="write Square icon"></i>{{post.post_name}}</h2>
           <article class="article" >
@@ -33,3 +36,4 @@
 
 </div>
 
+</div>
