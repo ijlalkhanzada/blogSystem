@@ -80,7 +80,8 @@
             </div>
           </div>
           <div class="comments">
-            <form class="ui reply form">
+              <p ng-show="errorMessage">First you <a href="#">LogIn</a> Or <a>SignUp</a></p>
+              <form class="ui reply form">
               <div class="field">
                 <textarea id="replyTextArea" ng-show="comments.showText" ng-model="commentData.comment_content" required></textarea>
               </div>
@@ -97,7 +98,8 @@
         <!--&lt;!&ndash;-------------------------------Submit Form-------------&ndash;&gt;-->
 <div class="comment">
 
-  <form class="ui reply form">
+    <p ng-show="errorMess">First you <a href="#">LogIn</a> Or <a>SignUp</a></p>
+    <form class="ui reply form">
     <div class="field">
       <textarea ng-model="comment.comment_content" placeholder="Write a new comment here" required></textarea>
     </div>
