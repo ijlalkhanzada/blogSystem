@@ -6,6 +6,7 @@ angular.module('blogSystemApp')
       restrict: 'EA',
       link: function (scope, element, attrs) {
         element.dropdown();
+
       }
     };
   });

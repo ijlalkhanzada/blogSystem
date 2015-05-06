@@ -4,7 +4,12 @@
 .navContainer{
   width: 850px;
 }
-
+.navbar-text{
+  text-transform: uppercase;
+}
+.btn.btn-success.pull-right{
+  margin-right: 5px;
+}
 #banner {
   border-bottom: none;
   margin-top: -20px;
