@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var CommentSchema = new Schema({
   comment_post_id: { type: Schema.ObjectId, ref: 'Post' },
-  comment_author: { type: Schema.ObjectId, ref: 'User' },
+  comment_author: String,
   comment_author_email: String,
   comment_author_url: String,
   comment_author_ip: String,

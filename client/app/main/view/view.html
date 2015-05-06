@@ -17,7 +17,7 @@
                     <div class="sub header">{{post.post_date | date:'medium'}}</div>
                     <h2 class="ui header">
                       <img src="../assets/images/icon.png" class="ui circular image">
-                      {{post.post_author. userName}}
+                      {{post.post_author.userName}}
                     </h2>
                   </div>
                 </h2>
@@ -26,7 +26,7 @@
           <div class="entry_summary">
             <section class="content ">
               <p  ng-bind="post.post_content"></p>
-                <p>{{t._id}}</p>
+                <!--<p>{{t._id}}</p>-->
             </section>
           </div>
         </article>
@@ -38,9 +38,9 @@
             <img src="../assets/images/icon.png">
           </a>
           <div class="content">
-            <a class="author">Matt</a>
+            <a class="author" ng-bind="comments.comment_author"></a>
             <div class="metadata">
-              <span class="date" ng-bind="post.post_date | date:'medium'"></span>
+              <span class="date" ng-bind="comments.comment_date | date:'medium'"></span>
               <div class="ui icon buttons">
                 <div class="ui top left pointing dropdown button" ui-dropdown>
                   <i class="write icon"></i>
@@ -57,7 +57,7 @@
               <div ng-bind="comments.comment_content"></div>
             </div>
             <div class="actions"  ng-init="comments.showText = false">
-                <a class="reply active"  ng-click="reply(comments); commentBody(comments);comments.showText = !comments.showText"><i class="forward mail icon"></i> <b>Reply</b></a>            </div>
+                <a class="reply active"  ng-click="reply(comments); comments.showText = !comments.showText"><i class="forward mail icon"></i> <b>Reply</b></a>            </div>
           </div>
             <div class="comment" ng-repeat="reply in replycomment | filter:{'comment_parent':  comments._id}:true ">            <div class="comments">
               <div class="comment">
@@ -65,9 +65,9 @@
                   <img src="../assets/images/icon2.png">
                 </a>
                 <div class="content">
-                  <a class="author" ng-bind="post.category"></a>
+                  <a class="author" ng-bind="reply.comment_author"></a>
                   <div class="metadata">
-                    <span class="date" ng-bind="post.post_date | date:'medium'  "></span>
+                    <span class="date" ng-bind="reply.comment_date | date:'medium'  "></span>
                   </div>
 
                   <div class="text">
@@ -80,7 +80,7 @@
             </div>
           </div>
           <div class="comments">
-              <p ng-show="errorMessage">First you <a href="#">LogIn</a> Or <a>SignUp</a></p>
+              <p ng-show="errorMessage">First you <a ui-sref="login">LogIn</a> Or <a ui-sref="signup">SignUp</a></p>
               <form class="ui reply form">
               <div class="field">
                 <textarea id="replyTextArea" ng-show="comments.showText" ng-model="commentData.comment_content" required></textarea>
@@ -95,20 +95,17 @@
           </div>
         </div>
 
-        <!--&lt;!&ndash;-------------------------------Submit Form-------------&ndash;&gt;-->
-<div class="comment">
-
-    <p ng-show="errorMess">First you <a href="#">LogIn</a> Or <a>SignUp</a></p>
-    <form class="ui reply form">
-    <div class="field">
-      <textarea ng-model="comment.comment_content" placeholder="Write a new comment here" required></textarea>
-    </div>
-    <button type="submit" class="ui blue labeled submit icon button"  ng-click="addComment()">
-      <i class="icon edit"></i> Submit
-    </button>
-  </form>
-
-</div>
+        <div class="comment">
+           <p ng-show="errorMess">First you <a ui-sref="login">LogIn</a> Or <a ui-sref="signup">SignUp</a></p>
+           <form class="ui reply form">
+             <div class="field">
+               <textarea ng-model="comment.comment_content" placeholder="Write a new comment here" required></textarea>
+             </div>
+             <button type="submit" class="ui blue labeled submit icon button"  ng-click="addComment()">
+               <i class="icon edit"></i> Submit
+             </button>
+           </form>
+        </div>
       </div>
     </div>
   </div>
