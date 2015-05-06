@@ -14,6 +14,8 @@ angular.module('blogSystemApp')
 
         $scope.comment = {};
         $scope.addComment = function(){
+            if(Auth.isLoggedIn() === true) {
+                $scope.comment.comment_author = Auth.getCurrentUser().userName;
                 $scope.comment.comment_post_id = $state.params.id;
                 comment.save($scope.comment, function(res){
                     comment.query({id: $state.params.id}, function(list){
@@ -21,6 +23,10 @@ angular.module('blogSystemApp')
                         $scope.comment = {};
                     });
                 });
+            }
+            else{
+                $scope.errorMess = true;
+            }
         };
 
         $scope.replycomment = [];
@@ -40,9 +46,15 @@ angular.module('blogSystemApp')
         };
 
         $scope.replyComment = function(){
-            comment.save($scope.commentData, function(res){
-                $scope.replycomment.push(res);
-                $scope.commentData.comment_content = '';
-            });
+            if(Auth.isLoggedIn() === true) {
+                $scope.commentData.comment_author = Auth.getCurrentUser().userName;
+                comment.save($scope.commentData, function (res) {
+                    $scope.replycomment.push(res);
+                    $scope.commentData.comment_content = '';
+                });
+            }
+            else{
+                $scope.errorMessage = true;
+            }
         }
   });
