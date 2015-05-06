@@ -6,6 +6,7 @@ angular.module('blogSystemApp', [
   'ngSanitize',
   'btford.socket-io',
   'ui.router',
+  'angularify.semantic.sidebar',
   'ui.bootstrap'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

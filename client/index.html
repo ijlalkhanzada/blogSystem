@@ -14,6 +14,7 @@
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.css" />
+      <link rel="stylesheet" href="bower_components/semantic/dist/semantic.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -30,9 +31,14 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+  <!--<side-bar></side-bar>-->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+
+  <div class="pusher">
+    <div ui-view=""></div>
+  </div>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -59,6 +65,11 @@
       <script src="bower_components/angular-socket-io/socket.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/semantic-ui/dist/semantic.js"></script>
+      <script src="bower_components/simple-sidebar/dist/jquery.simplesidebar.min.js"></script>
+      <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+      <script src="bower_components/semantic/dist/semantic.js"></script>
+      <script src="bower_components/angular-semantic-ui/dist/angular-semantic-ui.js"></script>
+      <script src="bower_components/angular-semantic-ui/dist/angular-semantic-ui.min.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->

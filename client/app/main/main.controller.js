@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('MainCtrl', function ($scope, Auth ,newService, comment, $state, categories) {
+  .controller('MainCtrl', function ($scope, Auth ,newService,comment, $state, categories) {
 
     newService.query(function(postList) {
       $scope.posts = postList;
