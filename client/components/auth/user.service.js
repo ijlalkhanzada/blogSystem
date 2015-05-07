@@ -13,7 +13,10 @@ angular.module('blogSystemApp')
         }
       },
         updateProfile: {
-        method: 'PUT'
+        method: 'PUT',
+        params: {
+            id:'@_id'
+        }
       },
       get: {
         method: 'GET',

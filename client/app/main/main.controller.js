@@ -15,4 +15,5 @@ angular.module('blogSystemApp')
     $scope.categoryName = function(name) {
        $state.go('filterPosts',{id: name})
     };
+
   });
