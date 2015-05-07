@@ -7,6 +7,7 @@ angular.module('blogSystemApp', [
   'btford.socket-io',
   'ui.router',
   'angularify.semantic.sidebar',
+  'angularify.semantic.modal',
   'ui.bootstrap'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

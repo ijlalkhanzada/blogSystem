@@ -25,7 +25,13 @@ angular.module('blogSystemApp')
                 });
             }
             else{
+
                 $scope.errorMess = true;
+                 angular.element('.modal')
+                .modal('show');
+                angular.element('.dimmer').destroy('modal');
+
+                console.log('testing SideBar')
             }
         };
 
@@ -46,7 +52,9 @@ angular.module('blogSystemApp')
         };
 
         $scope.replyComment = function(){
+          console.log('ssssssssssssssssssssssssssssssssssssssssssssssssssssssss')
             if(Auth.isLoggedIn() === true) {
+
                 $scope.commentData.comment_author = Auth.getCurrentUser().userName;
                 comment.save($scope.commentData, function (res) {
                     $scope.replycomment.push(res);
@@ -55,6 +63,10 @@ angular.module('blogSystemApp')
             }
             else{
                 $scope.errorMessage = true;
+
             }
         }
+
+    //$('.modal')
+      //.modal('show')
   });

@@ -2,11 +2,13 @@
 angular.module('blogSystemApp')
   .directive('sideBar', function () {
     return {
-      templateUrl: 'app/directives/sideBar/sideBar.html',
       restrict: 'EA',
+      replace: false,
+      templateUrl: 'app/directives/sideBar/sideBar.html',
       controller: 'MainCtrl',
       link: function (scope, element, attrs) {
-        $('#menu-toggle').on('click',function(){
+        $('#sidebar-toggle').on('click',function(){
+          console.log('testing sidebar');
           $('.ui.sidebar')
             .sidebar('attach events', '.launch.button');
         });
