@@ -1,15 +1,17 @@
 <div ng-controller="NavbarCtrl">
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-  <!--<div class="navbar navbar-default navbar-static-top" >-->
-
-
-  <ul class="nav navbar-nav navbar-right">
-    <li ng-show="isLoggedIn()"><p class="navbar-text" ui-sref="profile"><a href="#" id="color_name"> Hello {{ getCurrentUser().userName }}</a></p> </li>
+  <ul class="nav navbar-nav navbar-right" id="navbar2">
+    <li ng-show="isLoggedIn()" class="header-nav-item dropdown js-menu-container">
+      <a class="header-nav-link name" ui-sref="profile">
+        <img class= "avatar" style=" border-radius: 5px;" height="20" ng-src="{{ getCurrentUser().image }}" width="20">
+              <span class="css-truncate">
+              <span class="css-truncate-target">{{ getCurrentUser().userName }}</span>
+              </span>
+      </a>
+    </li>
     <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="glyphicon glyphicon-cog"></span></a></li>
     <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
   </ul>
-
-    <!--</div>-->
 </nav>
 
 

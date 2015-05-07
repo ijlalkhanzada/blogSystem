@@ -1,6 +1,4 @@
 <div ng-include="'components/navbar/navbar2.html'"></div>
-
-
 <div class="container">
   <div class="formWrapper">
     <form class="form-horizontal" novalidate name="form" ng-submit="createPost(form)">
@@ -27,7 +25,7 @@
         <span class="default text" >Select category</span>
         <div class="menu"  ng-model="post.category" >
           <div class="item" ng-repeat="category in categories">
-            <span class="right floated description glyphicon glyphicon-list" ></span>
+            <!--<span class="right floated description glyphicon glyphicon-list" ></span>-->
             {{category.name}}
           </div>
         </div>

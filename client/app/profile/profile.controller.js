@@ -17,6 +17,7 @@ angular.module('blogSystemApp')
             var oldUserName = user.userName;
             var oldEmail = user.email;
             $scope.update = function(){
+              $scope.submitted = true;
               if(oldUserName == user.userName && oldEmail == user.email) {
                   Upload.upload({
                       url: 'api/users/upload/url',
@@ -36,10 +37,12 @@ angular.module('blogSystemApp')
                   });
               }
             };
-          angular.element(".dropdown").dropdown(
+             angular.element(".dropdown").dropdown(
             {
               transition: 'drop'
             }
           );
+
         });
+
   });

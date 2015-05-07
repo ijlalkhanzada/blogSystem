@@ -27,9 +27,9 @@ angular.module('blogSystemApp')
             else{
 
                 $scope.errorMess = true;
-                 angular.element('.modal')
+                 angular.element('.modal.small')
                 .modal('show');
-                angular.element('.dimmer').destroy('modal');
+                angular.element.dimmer('destroy');
 
                 console.log('testing SideBar')
             }
@@ -67,6 +67,5 @@ angular.module('blogSystemApp')
             }
         }
 
-    //$('.modal')
-      //.modal('show')
+
   });
