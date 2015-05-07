@@ -7,8 +7,8 @@ angular.module('blogSystemApp', [
   'btford.socket-io',
   'ui.router',
   'angularify.semantic.sidebar',
-  'angularify.semantic.modal',
-  'ui.bootstrap'
+  'ui.bootstrap',
+   'ngFileUpload'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
