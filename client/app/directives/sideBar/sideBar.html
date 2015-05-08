@@ -1,27 +1,28 @@
-  <div class="ui fixed vertical sidebar menu left" >
-    <div class="ui list">
+
+  <div id="sideBar">
+    <ul class="ui relaxed list">
       <div class="item">
-        <img src="../assets/images/icon.png">
+
+        <img ng-controller="NavbarCtrl" class= "ui avatar image"  ng-src="{{ getCurrentUser().image }}" width="20">
+
         <div class="content">
-          <div class="header">Daniel Louise</div>
+          <a class="header" ng-controller="NavbarCtrl">{{ getCurrentUser().userName }}</a>
+
+          <!--<a class="header">Daniel Louise</a>-->
         </div>
       </div>
-    </div>
-    <ul class="sidebar-nav">
+      <div class="item">
       <div class="ui accordion">
-        <div class="title">
-          <i class="dropdown icon"></i>
-          Category
+          <div class="item">
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Categories
+          </div>
+          <ul class="content">
+            <li ng-repeat="category in categories" ng-click="categoryName(category.name)"><span>{{category.name}}</span></li>
+          </ul>
+          </div>
         </div>
-        <ul class="content">
-          <li ng-repeat="category in categories" ng-click="categoryName(category.name)"><span>{{category.name}}</span></li>
-        </ul>
       </div>
     </ul>
-  </div>
-  <div class="ui big launch right attached fixed button">
-    <a class="arrow" id="sidebar-toggle">
-      <i class="content icon"></i>
-      Menu
-    </a>
   </div>
