@@ -24,8 +24,8 @@ angular.module('blogSystemApp')
                       url: 'api/posts/upload/url',
                       file: $scope.image
                   }).progress(function (evt) {
-                      var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                      console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                      $scope.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                      console.log('progress: ' + $scope.progressPercentage + '% ' + evt.config.file.name);
                   }).success(function (data, status, headers, config) {
                       console.log('file ' + config.file.name + 'uploaded. Response: ', data);
                       if (data.status == 'success') {
