@@ -13,28 +13,35 @@ angular.module('blogSystemApp')
         };
 
         var userID = Auth.getCurrentUser()._id;
-        $scope.post = {};
         $scope.userName = Auth.getCurrentUser().userName;
+        $scope.post = {};
         $scope.post.post_author = userID;
         $scope.createPost = function(form){
           $scope.submitted = true;
-            if(form.$valid){
-                Upload.upload({
-                    url: 'api/posts/upload/url',
-                    file: $scope.image
-                }).progress(function (evt) {
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                    console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
-                }).success(function (data, status, headers, config) {
-                    console.log('file ' + config.file.name + 'uploaded. Response: ' , data);
-                    if(data.status == 'success'){
-                        $scope.post.image = data.url_file;
-                        newService.save($scope.post, function(res){
-                            console.log(res);
-                            $state.go('posts');
-                        });
-                    }
-                });
+          if(form.$valid){
+              if($scope.image) {
+                  Upload.upload({
+                      url: 'api/posts/upload/url',
+                      file: $scope.image
+                  }).progress(function (evt) {
+                      var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                      console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                  }).success(function (data, status, headers, config) {
+                      console.log('file ' + config.file.name + 'uploaded. Response: ', data);
+                      if (data.status == 'success') {
+                          $scope.post.image = data.url_file;
+                          newService.save($scope.post, function (res) {
+                              console.log(res);
+                              $state.go('posts');
+                          });
+                      }
+                  });
+              }else{
+                  newService.save($scope.post, function (res) {
+                      console.log(res);
+                      $state.go('posts');
+                  });
+              }
 
           }
         };
