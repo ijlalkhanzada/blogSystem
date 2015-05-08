@@ -2,7 +2,7 @@
 <div  class="container margin-left active">
   <div class="col-md-12">
   <div class="formWrapper">
-    <form class="form-horizontal" ng-submit="update(form)">
+    <form class="form-horizontal" name="form" ng-submit="update(form)">
       <div class="ui active loader large" ng-if="submitted"><span>{{progressPercentage+'%'}}</span></div>
       <div class="form-group paddingTop40">
         <label for="userName" class="col-sm-2 control-label">User Name</label>
@@ -341,9 +341,10 @@
           <textarea type="text" class="form-control" id="description" placeholder="Description" rows="5" ng-model="user.description"></textarea>
         </div>
       </div>
-
+      <div class="col-sm-offset-2 col-sm-10" ng-show="message">
+          <p style="color: #bc3a29">You can't be able to change user name or email</p>
+      </div>
       <div class="form-group">
-
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-default">Update Profile</button>
         </div>

@@ -17,8 +17,8 @@ angular.module('blogSystemApp')
         $scope.post = {};
         $scope.post.post_author = userID;
         $scope.createPost = function(form){
-          $scope.submitted = true;
           if(form.$valid){
+              $scope.submitted = true;
               if($scope.image) {
                   Upload.upload({
                       url: 'api/posts/upload/url',
@@ -36,7 +36,8 @@ angular.module('blogSystemApp')
                           });
                       }
                   });
-              }else{
+              }
+              else{
                   newService.save($scope.post, function (res) {
                       console.log(res);
                       $state.go('posts');
