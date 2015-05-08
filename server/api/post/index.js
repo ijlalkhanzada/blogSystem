@@ -14,7 +14,7 @@ router.post('/upload/url', auth.hasRole('author'), multipartMiddleware, controll
 router.get('/', controller.index);
 router.get('/:id',auth.hasRole('author'), controller.showAuthorPost);
 router.get('/:id/edit',auth.hasRole('author'), controller.editPost);
-router.get('/:id/filter', controller.filterPosts);
+router.get('/:id/category', controller.filterPosts);
 router.get('/:id/full', controller.show);
 router.post('/', auth.hasRole('author'),controller.create);
 router.put('/:id', auth.hasRole('author'), controller.update);

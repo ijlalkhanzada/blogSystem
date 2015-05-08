@@ -25,7 +25,7 @@ angular.module('blogSystemApp')
               isArray: true,
           params: {
               id:'@_id',
-              controller: 'filter'
+              controller: 'category'
           }
       },
          fullPost: {
