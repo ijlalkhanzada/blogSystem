@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('ViewCtrl', function ($scope, newService, comment, $state, Auth, $timeout) {
+  .controller('ViewCtrl', function ($scope, newService, comment, $state, Auth, $timeout, $modal) {
 
         newService.fullPost({id: $state.params.id}, function(post) {
             var id = post._id;
@@ -27,11 +27,19 @@ angular.module('blogSystemApp')
             else{
 
                 $scope.errorMess = true;
-                 angular.element('.modal.small')
-                .modal('show');
-                angular.element.dimmer('destroy');
+              var modalInstance = $modal.open({
 
-                console.log('testing SideBar')
+                animation: $scope.animationsEnabled,
+                templateUrl: 'app/main/view/popup/myModalContent.html',
+                controller: 'ModalInstanceCtrl',
+                size: 'md',
+                resolve: {
+                  items: function () {
+                    console.log('Popup')
+                    return $scope.items;
+                  }
+                }
+              });
             }
         };
 

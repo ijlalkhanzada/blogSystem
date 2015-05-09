@@ -3,12 +3,10 @@
     <ul class="ui relaxed list">
       <div class="item">
 
-        <img ng-controller="NavbarCtrl" class= "ui avatar image"  ng-src="{{ getCurrentUser().image }}" width="20">
+        <img ng-show="isLoggedIn()" ng-controller="NavbarCtrl" class= "ui avatar image"  ng-src="{{ getCurrentUser().image }}" width="20">
 
         <div class="content">
           <a class="header" ng-controller="NavbarCtrl">{{ getCurrentUser().userName }}</a>
-
-          <!--<a class="header">Daniel Louise</a>-->
         </div>
       </div>
       <div class="item">

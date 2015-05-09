@@ -7,6 +7,8 @@ angular.module('blogSystemApp', [
   'btford.socket-io',
   'ui.router',
   'angularify.semantic.sidebar',
+  'angularify.semantic.modal',
+  'angularify.semantic.dropdown',
   'ui.bootstrap',
    'ngFileUpload'
 ])
