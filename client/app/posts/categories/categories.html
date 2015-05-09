@@ -1,0 +1,11 @@
+<div ng-include="'components/navbar/navbar2.html'"></div>
+
+<div class="container">
+
+  <div class="col-md-1"></div>
+  <div class="col-md-8 margin_content">
+<ul class="content" ng-controller="MainCtrl">
+  <li ng-repeat="category in categories" ng-click="categoryName(category.name)"><span>{{category.name}}</span></li>
+</ul>
+</div>
+  </div>
