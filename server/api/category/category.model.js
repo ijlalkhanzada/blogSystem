@@ -5,8 +5,12 @@ var mongoose = require('mongoose'),
 
 var CategorySchema = new Schema({
     name: String,
+    post_date: { type: Date, default: Date.now },
+    post_name: String,
 //    slug: String,
-    term_group: {type: Schema.ObjectId}
+  category: String,
+
+  term_group: {type: Schema.ObjectId}
 });
 
 module.exports = mongoose.model('Category', CategorySchema);

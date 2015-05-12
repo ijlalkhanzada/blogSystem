@@ -4,7 +4,7 @@ angular.module('blogSystemApp')
   .controller('FilterPostsCtrl', function ($scope, $state, newService) {
         newService.filterPost({id: $state.params.id}, function (categoryPost) {
             $scope.categoryPost = categoryPost;
-            console.log($scope.ctg);
+            console.log(categoryPost);
         });
 
         $scope.fullPost = function(post){

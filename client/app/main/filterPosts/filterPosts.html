@@ -1,8 +1,13 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+<side-bar></side-bar>
 <div class="container">
   <div class="col-md-1"></div>
   <div class="col-md-8 margin_content">
-            <div class="ui piled segment" ng-repeat="category in categoryPost">
+    <div class="alert alert-danger" role="alert" ng-if="!categoryPost.length">
+      <h2>No Category Post yet ..... !</h2>
+    </div>
+
+            <div class="ui piled segment" ng-repeat="category in categoryPost" ng-show="categoryPost.length">
                 <h2 class="ui blue ribbon label "><i class="write Square icon"></i>{{category.post_name}}</h2>
                 <article class="article" >
                     <header>

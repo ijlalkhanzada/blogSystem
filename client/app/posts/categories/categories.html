@@ -1,11 +1,24 @@
 <div ng-include="'components/navbar/navbar2.html'"></div>
 
 <div class="container">
-
   <div class="col-md-1"></div>
   <div class="col-md-8 margin_content">
-<ul class="content" ng-controller="MainCtrl">
-  <li ng-repeat="category in categories" ng-click="categoryName(category.name)"><span>{{category.name}}</span></li>
-</ul>
+    <table class="ui blue table" ng-controller="MainCtrl">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Category Name</th>
+        <th>Registration Date</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="category in categories">
+        <td ui-sref="editCategories({id:category._id})">{{category._id}}</td>
+        <td>{{category.name}}</td>
+        <td>{{category.post_date | date:'medium'}}</td>
+      </tr>
+      </tbody>
+    </table>
 </div>
-  </div>
+</div>
