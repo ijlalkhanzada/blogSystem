@@ -7,8 +7,8 @@ var CategorySchema = new Schema({
     name: String,
     post_date: { type: Date, default: Date.now },
     post_name: String,
-//    slug: String,
   category: String,
+  post_content:String,
 
   term_group: {type: Schema.ObjectId}
 });

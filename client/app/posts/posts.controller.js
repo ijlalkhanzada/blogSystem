@@ -30,5 +30,4 @@ angular.module('blogSystemApp')
              $scope.ctg = categoryPost;
           });
         };
-
   });

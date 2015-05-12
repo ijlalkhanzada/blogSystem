@@ -2,19 +2,24 @@
 
 <div class="container">
   <div class="col-md-1"></div>
-  <div class="col-md-8 margin_content">
-    <table class="ui blue table" ng-controller="MainCtrl">
+  <div class="col-md-8 margin_content" ng-controller="MainCtrl" >
+
+    <div class="alert alert-danger" role="alert" ng-if="!categories.length">
+      <h2>No Category yet ..... !</h2>
+    </div>
+
+
+    <table class="ui blue table" ng-show="categories.length">
       <thead>
       <tr>
         <th>Id</th>
         <th>Category Name</th>
         <th>Registration Date</th>
-
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="category in categories">
-        <td ui-sref="editCategories({id:category._id})">{{category._id}}</td>
+      <tr ng-repeat="category in categories" ui-sref="editCategories({id:category._id})">
+        <td>{{category._id}}</td>
         <td>{{category.name}}</td>
         <td>{{category.post_date | date:'medium'}}</td>
       </tr>
