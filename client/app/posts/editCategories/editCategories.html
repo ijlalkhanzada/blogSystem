@@ -14,14 +14,14 @@
           <div class="form-group">
             <label for="newPostName" class="col-sm-4 control-label">Category Name</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" id="newPostName" name="name" placeholder="Post Name" ng-model="category.name" required>
+              <input type="text" class="form-control" id="newPostName" name="name" placeholder="Title" ng-model="category.name" required>
               <span class="help-block ng-binding" ng-show="form.name.$error.required && submitted">Please Fill Name</span>
             </div>
           </div>
           <div class="form-group">
             <label for="newPostName" class="col-sm-4 control-label">Category Name</label>
             <div class="col-sm-8">
-              <textarea class="form-control" name="content" placeholder="Post Something Here" ng-model="category.post_content" rows="5" required></textarea>
+              <textarea class="form-control" name="content" placeholder="Description" ng-model="category.post_content" rows="5" required></textarea>
               <span class="help-block ng-binding" ng-show="form.content.$error.required && submitted">Please Fill Description</span>
             </div>
           </div>

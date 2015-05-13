@@ -44,32 +44,6 @@
         post
       </button>
     </form>
-    <div class="btn btn-success pull-right"  ng-click="show = !show">
-      <i class="glyphicon glyphicon-list"></i>
-      Add Category
-    </div>
-  </div>
-</div>
-
-
-<div class="container">
-  <div class="formWrapper" style="  width: 83%; float: right;" ng-show="show">
-    <form class="form-horizontal" name="catForm" ng-submit="addCategoriesTo()">
-      <input type="text" class="form-control" ng-model="obj.name" placeholder="Add Category Here..." required>
-
-      <div class="form-group">
-        <div class="col-sm-12">
-          <textarea class="form-control" name="content" placeholder="Post Something Here" ng-model="obj.post_content" rows="5" required></textarea>
-          <span class="help-block ng-binding" ng-show="form.content.$error.required && submitted">Please Fill Description</span>
-        </div>
-      </div>
-
-      <hr>
-      <button type="submit" class="btn btn-success">
-        <i class="glyphicon glyphicon-list"></i>
-        create category
-      </button>
-    </form>
   </div>
 </div>
 

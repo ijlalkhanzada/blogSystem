@@ -12,15 +12,15 @@
     <table class="ui blue table" ng-show="categories.length">
       <thead>
       <tr>
-        <th>Id</th>
         <th>Category Name</th>
+        <th>Description</th>
         <th>Registration Date</th>
       </tr>
       </thead>
       <tbody>
       <tr ng-repeat="category in categories" ui-sref="editCategories({id:category._id})">
-        <td>{{category._id}}</td>
         <td>{{category.name}}</td>
+        <td>{{category.post_content | limitTo: 30}}</td>
         <td>{{category.post_date | date:'medium'}}</td>
       </tr>
       </tbody>
