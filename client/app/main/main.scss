@@ -86,8 +86,21 @@ p:first-child{
     }
 
   }
-}
 
+}
+.ui.compact.selection.dropdown  {
+  padding: 0px;
+  background: #222222;
+  color: white;
+  margin: 6px;
+
+  span.css-truncate-target.ng-binding {
+    color: white;
+  }
+  .menu.transition.visible {
+    background: rgb(238, 238, 238);
+  }
+}
 
 
 

@@ -31,4 +31,10 @@ angular.module('blogSystemApp')
       console.log('Start Toggle Menu');
     });
 
+    $('.dropdown')
+      .dropdown({
+        transition: 'drop'
+      })
+    ;
+
   });
