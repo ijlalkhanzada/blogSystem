@@ -49,6 +49,9 @@ angular.module('blogSystemApp', [
 
   .run(function ($rootScope, $location, Auth) {
     // Redirect to login if route requires auth and you're not logged in
+    $rootScope.$on('profile', function(a, res){
+      $rootScope.$broadcast('updated', res)
+    }) ;
     $rootScope.$on('$stateChangeStart', function (event, next) {
       $rootScope.state = next.name;
 

@@ -9,7 +9,8 @@ var multipart = require('connect-multiparty')
 
 var router = express.Router();
 
-router.post('/upload/url', auth.isAuthenticated(), multipartMiddleware, controller.imageUpload);
+router.put('/upload/url', auth.isAuthenticated(), multipartMiddleware, controller.imageUpload);
+router.get('/:id/show', multipartMiddleware, controller.getImage);
 router.get('/', auth.isAuthenticated(), controller.index);
 router.delete('/:id', auth.hasRole('admin'), controller.destroy);
 router.get('/me', auth.isAuthenticated(), controller.me);

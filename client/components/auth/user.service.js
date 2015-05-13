@@ -35,6 +35,13 @@ angular.module('blogSystemApp')
         params: {
           id:'@_id'
         }
+      },
+      getImage: {
+        method: 'get',
+        params: {
+          id: '@_id',
+          controller: 'show'
+        }
       }
 	  });
   });
