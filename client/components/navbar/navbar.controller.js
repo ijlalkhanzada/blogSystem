@@ -35,6 +35,5 @@ angular.module('blogSystemApp')
       .dropdown({
         transition: 'drop'
       })
-    ;
 
   });
