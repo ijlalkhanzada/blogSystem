@@ -30,9 +30,9 @@
         <ul class="nav navbar-nav">
           <li ng-show="isLoggedIn()" class="header-nav-item dropdown js-menu-container">
             <a class="header-nav-link name" ui-sref="profile">
-              <img class= "avatar" style=" border-radius: 5px;" height="20" ng-src="{{ getCurrentUser().image }}" width="20">
+              <img class= "avatar" style=" border-radius: 5px;" height="20" ng-src="{{ getCurrentUser.image }}" width="20">
               <span class="css-truncate">
-              <span class="css-truncate-target">{{ getCurrentUser().userName }}</span>
+              <span class="css-truncate-target">{{ getCurrentUser.userName }}</span>
               </span>
             </a>
           </li>

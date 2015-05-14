@@ -8,8 +8,7 @@ var jwt = require('jsonwebtoken');
 var mongo = require('mongodb');
 var Grid = require('gridfs-stream');
 var fs = require('fs');
-var db = new mongo.Db('blogsystem-dev', new mongo.Server
-("127.0.0.1", 27017));
+var db = new mongo.Db('blogsystem-dev', new mongo.Server("127.0.0.1", 27017));
 
 
 var validationError = function(res, err) {
@@ -22,8 +21,7 @@ exports.imageUpload = function(req, res) {
     db.open(function (err) {
         if (err) return handleError(err);
         var gfs = Grid(db, mongo);
-        var writestream = gfs.createWriteStream({filename:
-            file.name});
+        var writestream = gfs.createWriteStream({filename: file.name});
         fs.createReadStream(path).pipe(writestream);
         res.send(200, {id: writestream.id});
     });
@@ -32,9 +30,7 @@ exports.imageUpload = function(req, res) {
 exports.getImage = function(req, res) {
     db.open(function (err) {
         var gfs = Grid(db, mongo);
-        gfs.createReadStream({
-            _id: req.params.id
-        }).pipe(res)
+        gfs.createReadStream({ _id: req.params.id }).pipe(res)
     });
 };
 
