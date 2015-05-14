@@ -15,8 +15,10 @@ angular.module('blogSystemApp')
     $scope.categoryName = function(name) {
        $state.go('filterPosts',{id: name})
     };
-        User.get(function(user){
-            $scope.currentUser = user.image;
-        })
+    if(Auth.isLoggedIn() === true) {
+      User.get(function (user) {
+        $scope.currentUser = user.image;
+      })
+    }
 
   });
