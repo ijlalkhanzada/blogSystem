@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('blogSystemApp')
-  .controller('MainCtrl', function ($scope, Auth ,newService,comment, $state, categories) {
+  .controller('MainCtrl', function ($scope, Auth ,newService,comment, $state, categories, User) {
 
     newService.query(function(postList) {
       $scope.posts = postList;
@@ -15,5 +15,8 @@ angular.module('blogSystemApp')
     $scope.categoryName = function(name) {
        $state.go('filterPosts',{id: name})
     };
+        User.get(function(user){
+            $scope.currentUser = user.image;
+        })
 
   });

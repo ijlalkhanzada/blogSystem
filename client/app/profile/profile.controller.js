@@ -28,16 +28,12 @@ angular.module('blogSystemApp')
                             }).progress(function (evt) {
                                 $scope.progressPercentage =
                                     parseInt(100.0 * evt.loaded / evt.total);
-                                console.log('progress: ' +
-                                    $scope.progressPercentage + '% ');
-                                console.log(evt.config.file);
+                                console.log('progress: ' + $scope.progressPercentage + '% ' + evt.config.file);
                             })
                             .success(function (data, status, headers, config) {
                                     console.log('file ' + config.file.name + 'uploaded. Response: ', data);
-                                    console.log(data);
                                     $scope.user.image = data.id;
                                     User.updateProfile({id: $scope.user._id}, $scope.user, function (res) {
-                                        console.log(res);
                                         $scope.$emit("profile",res);
                                         $state.go('main');
                                     });
