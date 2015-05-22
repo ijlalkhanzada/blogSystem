@@ -46,19 +46,52 @@ exports.index = function(req, res) {
   });
 };
 
-/**
- * Creates a new user
- */
+/*
+Email Sending from NodeEmailer Module
+*/
 exports.create = function (req, res, next) {
   var newUser = new User(req.body);
+  var userEmail = req.body.email;
   newUser.provider = 'local';
   newUser.role = 'subscriber';
   newUser.save(function(err, user) {
     if (err) return validationError(res, err);
+    console.log("User Created!");
+    var emilURL = req.protocol + "://" + req.get("host") + "/approve/"+user._id;
+    console.log("Email Created!",emilURL);
+    require('./../../util/emailer').util.Email.SendEmail({
+      Subject: "Account Approval !",
+      To: 'tetsingblogsystem@gmail.com',
+      //message: "<h2>Dear Admin " + "<p>Please Click <a href='" + emilURL + "'>here</a> to Approve Prof " + user.userName + " Account.</p></h2><br/><br/><br/><br/><p>Team<br/>University</p>"
+      message: "<h2> Hello Admin</h2><p>Please Click <a href='" + emilURL +"'>HERE</a> to Approve Prof <b>" + user.userName +" </b>  Account</p><h3>Team <h4>Blog Post</h4> </h3>"
+    })
+      .then(function () {
+      return res.json(201, user);
+    }, function (errObj) {
+      return res.json(201, user);
+    });
+
+    require('./../../util/emailer').util.Email.SendEmail({
+      Subject: "Verify your Blog Account!",
+      To: userEmail,
+      message: "<h2>Dear " + user.userName + "<p>Your Account will be Activated after Admin approval.</p></h2><br/><br/><br/><br/><b>Team<br/>Blog Post System </b>"
+
+
+    }).then(function () {
+      return res.json(201, user);
+    }, function (errObj) {
+      return res.json(201, user);
+    });
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
     res.json({ token: token });
   });
 };
+
+/*
+ Email Sending from NodeEmailer Module
+ */
+
+
 
 /**
  * Get a single user

@@ -14,6 +14,10 @@ angular.module('blogSystemApp')
          $scope.userRole = user.role;
       });
     }
+    else{
+      $scope.getCurrentUser = Auth.getCurrentUser();
+      $scope.userRole = Auth.getCurrentUser().role;
+    }
 
     $scope.$on('updated', function(a, res){
     });

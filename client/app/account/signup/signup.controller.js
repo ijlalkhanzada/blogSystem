@@ -15,6 +15,7 @@ angular.module('blogSystemApp')
         })
         .then( function() {
           // Account created, redirect to home
+          //  alert("your Account will b Activeated after admin Approval");
           $location.path('/');
         })
         .catch( function(err) {
@@ -26,6 +27,11 @@ angular.module('blogSystemApp')
             $scope.errors[field] = error.message;
           });
         });
+      }
+
+      $scope.loginOuth = function(provider){
+        $window.location.href = '/auth/' + provider;
+        console.log('loginOuth',loginOuth)
       }
     };
 

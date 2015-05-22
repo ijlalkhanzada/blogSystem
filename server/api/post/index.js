@@ -6,6 +6,7 @@ var config = require('../../config/environment');
 var auth = require('../../auth/auth.service');
 var multipart = require('connect-multiparty')
     , multipartMiddleware = multipart();
+var nodemailer = require("nodemailer");
 
 var router = express.Router();
 

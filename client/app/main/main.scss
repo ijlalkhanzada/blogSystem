@@ -2,7 +2,7 @@
   margin: 20px 0;
 }
 .nav2Container{
-  width: 1040px;
+  width: 1080px;
 }
 .navContainer{
   width: 850px;
@@ -88,6 +88,7 @@ p:first-child{
   }
 
 }
+
 .ui.compact.selection.dropdown  {
   padding: 14px;
   background: #222222;
@@ -104,31 +105,46 @@ p:first-child{
     background: rgb(238, 238, 238);
   }
 }
-.ui.fluid.selection.dropdown{
-  background: #e7e7e7;
-  color: rgb(97, 157, 208);
-  padding: 10px;
+
+
+.ui.tiered.purple.inverted.menu{
+  color: rgb(255, 255, 255);
   border: 0px;
+.item{
+  line-height: 15px;
+  font-size: 13px;
+}
   .dropdown.icon{
-  padding-top: 20px;
+    padding-top: 6px;
     outline: none;
+    font-size: 17px;
 
   }
   img.avatar{
-      width: 30px;
+      width: 40px;
     height: 30px;
   }
   .liLine{
     line-height: 19px;
     font-size: 14px;
   }
-
-  span.css-truncate-target.ng-binding {
-    color: rgb(97, 157, 208);
+  a.ui.dropdown.item{
+    padding:10.2px ;
   }
-  .menu.transition.visible {
-    background: rgb(238, 238, 238);
+  span.css-truncate-target.ng-binding {
+    color: rgb(255, 255, 255);
+    font-size: 13px;
   }
 }
 
+.ui.button {
+  background: none;
+  background: transparent;
+  color: #ffffff;
+}
+.ui.button:hover{
+  background: none;
+  background: transparent;
+  color: rgba(192, 63, 63, 0.8);
 
+}

@@ -1,5 +1,5 @@
 <div class="navbar navbar-default navbar-fixed-top" ng-controller="NavbarCtrl">
-  <div class="container navContainer">
+  <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -9,44 +9,41 @@
       </button>
       <a href="/" class="navbar-brand">blog-system</a>
     </div>
-
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-href="{{item.link}}">{{item.title}}</a>
         </li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
+        <li>  </li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
-
         <li ng-show="isLoggedIn()" class="header-nav-item dropdown js-menu-container " id="mainDropdowan">
           <ul class="nav navbar-nav navbar-right">
-
-            <div class="ui fluid selection dropdown">
-              <i class="dropdown icon"></i>
-
-              <div class="text" id="menu-toggle">
-                <a href="#" toggle-class="active">
+            <div ng-show="isLoggedIn()"  class="ui tiered purple inverted menu">
+              <div class="menu">
+              <a class="ui dropdown item">
                 <span>
                 <img class= "avatar" style="  border-radius: 5px;" ng-src="api/users/{{ getCurrentUser.image }}/show">
                 </span>
-                </a>
-              <span class="css-truncate">
+                <span class="css-truncate">
               <span class="css-truncate-target" ui-sref="profile">{{ getCurrentUser.userName }}</span>
               </span>
-              </div>
-              <div class="menu">
-                <div class="item">
-                  <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}" ng-click="logout()" ui-sref="login"><a href="" class="liLine">Logout</a>
-                  </li>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item" ng-click="logout()">
+                  <span class="text"  ng-show="isLoggedIn()"  ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}" ui-sref="login" class="liLine">Logout
+                    </span>
+                  </div>
+                  <div class="item" ng-show="isLoggedIn()" ui-sref="settings">
+                  <span class="text" ng-class="{active: isActive('/settings')}" class="liLine" >Setting
+                    </span>
+                  </div>
                 </div>
-                <div class="item">
-                  <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}" class="liLine" ui-sref="settings">
-                    <a href="#">Setting</a>
-                  </li>
-                </div>
+              </a>
               </div>
             </div>
           </ul>
