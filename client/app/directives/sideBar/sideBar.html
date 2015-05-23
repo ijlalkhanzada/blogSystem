@@ -1,5 +1,17 @@
+<div class="container" ng-if="!categories.length">
+  <div class="col-xs-8 col-md-10  margin_content">
+    <div class="ui center aligned alert alert-danger " >
+      <div class="ui text shape">
+        <div class="sides">
+          <div class="active ui header side"> <h2> Sorry ! you have Until now not a Category and Post</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <div id="sideBar">
+<div id="sideBar"  ng-show="categories.length">
     <ul class="ui relaxed list">
         <div class="item" ng-show="isLoggedIn()" ng-controller="NavbarCtrl" >
           <img class= "avatar" style="  border-radius: 5px;" height="20" ng-src="api/users/{{ getCurrentUser.image }}/show" width="20">

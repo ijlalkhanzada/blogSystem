@@ -5,33 +5,34 @@ var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 //var _ = require('underscore');
+var fs = require('fs');
+
 var mongo = require('mongodb');
 var Grid = require('gridfs-stream');
-var fs = require('fs');
 var db = new mongo.Db('blogsystem-dev', new mongo.Server("127.0.0.1", 27017));
 
 
 var validationError = function(res, err) {
-    return res.json(422, err);
+  return res.json(422, err);
 };
 // write image on mongoDb
 exports.imageUpload = function(req, res) {
-    var file = req.files.file,
-        path = file.path;
-    db.open(function (err) {
-        if (err) return handleError(err);
-        var gfs = Grid(db, mongo);
-        var writestream = gfs.createWriteStream({filename: file.name});
-        fs.createReadStream(path).pipe(writestream);
-        res.send(200, {id: writestream.id});
-    });
+  var file = req.files.file,
+    path = file.path;
+  db.open(function (err) {
+    if (err) return handleError(err);
+    var gfs = Grid(db, mongo);
+    var writestream = gfs.createWriteStream({filename: file.name});
+    fs.createReadStream(path).pipe(writestream);
+    res.send(200, {id: writestream.id});
+  });
 };
 //read image from mongoDb
 exports.getImage = function(req, res) {
-    db.open(function (err) {
-        var gfs = Grid(db, mongo);
-        gfs.createReadStream({ _id: req.params.id }).pipe(res)
-    });
+  db.open(function (err) {
+    var gfs = Grid(db, mongo);
+    gfs.createReadStream({ _id: req.params.id }).pipe(res)
+  });
 };
 
 
@@ -47,8 +48,8 @@ exports.index = function(req, res) {
 };
 
 /*
-Email Sending from NodeEmailer Module
-*/
+ Email Sending from NodeEmailer Module
+ */
 exports.create = function (req, res, next) {
   var newUser = new User(req.body);
   var userEmail = req.body.email;
@@ -66,11 +67,10 @@ exports.create = function (req, res, next) {
       message: "<h2> Hello Admin</h2><p>Please Click <a href='" + emilURL +"'>HERE</a> to Approve Prof <b>" + user.userName +" </b>  Account</p><h3>Team <h4>Blog Post</h4> </h3>"
     })
       .then(function () {
-      return res.json(201, user);
-    }, function (errObj) {
-      return res.json(201, user);
-    });
-
+        return res.json(201, user);
+      }, function (errObj) {
+        return res.json(201, user);
+      });
     require('./../../util/emailer').util.Email.SendEmail({
       Subject: "Verify your Blog Account!",
       To: userEmail,
@@ -166,13 +166,13 @@ exports.me = function(req, res, next) {
 // Updates an existing student in the DB custom.
 exports.update = function(req, res) {
 //    if(req.body._id) { delete req.body._id; }
-    User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
-        console.log(req.body);
-        console.log(req.user._id);
-        if (err) { return handleError(res, err); }
-        if(!user) { return res.send(404); }
-        res.json(user);
-    });
+  User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+    console.log(req.body);
+    console.log(req.user._id);
+    if (err) { return handleError(res, err); }
+    if(!user) { return res.send(404); }
+    res.json(user);
+  });
 };
 
 /**
