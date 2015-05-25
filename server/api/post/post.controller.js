@@ -3,58 +3,44 @@
 var _ = require('lodash');
 var Post = require('./post.model');
 var underscore = require('underscore');
-var s3 = require('s3');
+//var s3 = require('s3');
+var fs = require('fs');
 
-var client = s3.createClient({
-    maxAsyncS3: 20,     // this is the default
-    s3RetryCount: 3,    // this is the default
-    s3RetryDelay: 1000, // this is the default
-    multipartUploadThreshold: 20971520, // this is the default (20 MB)
-    multipartUploadSize: 15728640, // this is the default (15 MB)
-    s3Options: {
-        accessKeyId: 'AKIAIZPQYKHYUICKCVDA',
-        secretAccessKey: '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'
-        // any other options are passed to new AWS.S3()
-        // See: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#constructor-property
-    }
-});
+var mongo = require('mongodb');
+var Grid = require('gridfs-stream');
+var db = new mongo.Db('blogsystem-dev', new mongo.Server("127.0.0.1", 27017));
 
-//upload image on s3
-exports.postImageUpload = function(req, res) {
+var validationError = function(res, err) {
+  return res.json(422, err);
+};
 
-    var data = underscore.pick(req.body, 'name', 'description')
-        , file = req.files.file;
-
-    var params = {
-        localFile: file.path,
-        s3Params: {
-            Bucket: 'triby',
-            Key: 'blog-' + file.name,
-            ACL: 'public-read'
-        }
-    };
-    var uploader = client.uploadFile(params);
-    uploader.on('error', function(err) {
-        console.error("unable to upload:", err.stack);
-        res.send({"status":"error","url_file": url});
-    });
-    uploader.on('progress', function() {
-        console.log("progress", uploader.progressMd5Amount,
-            uploader.progressAmount, uploader.progressTotal);
-    });
-    uploader.on('end', function() {
-        console.log("done uploading");
-        var url = s3.getPublicUrlHttp('triby','blog-' + file.name);
-        res.send({"status":"success","url_file": url});
-    });
+// write image on mongoDb
+exports.imageUpload = function(req, res) {
+  var file = req.files.file,
+    path = file.path;
+  db.open(function (err) {
+    if (err) return handleError(err);
+    var gfs = Grid(db, mongo);
+    var writestream = gfs.createWriteStream({filename: file.name});
+    fs.createReadStream(path).pipe(writestream);
+    res.send(200, {id: writestream.id});
+  });
+};
+//read image from mongoDb
+exports.getImage = function(req, res) {
+  db.open(function (err) {
+    var gfs = Grid(db, mongo);
+    gfs.createReadStream({ _id: req.params.id }).pipe(res);
+    console.log('testing Img', req.params.id)
+  });
 };
 
 // Get list of posts
 exports.index = function(req, res) {
-    Post.find().populate('post_author').exec(function (err, posts) {
-        if(err) { return handleError(res, err); }
-        return res.json(200, posts);
-    });
+  Post.find().populate('post_author').exec(function (err, posts) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, posts);
+  });
 };
 
 // Get a single post
@@ -67,25 +53,25 @@ exports.show = function(req, res) {
 };
 
 exports.showAuthorPost = function(req, res) {
-    Post.find({post_author: req.params.id}, function (err, post) {
-        if(err) { return handleError(res, err); }
-        if(!post) { return res.send(404); }
-        return res.json(post);
-    });
+  Post.find({post_author: req.params.id}, function (err, post) {
+    if(err) { return handleError(res, err); }
+    if(!post) { return res.send(404); }
+    return res.json(post);
+  });
 };
 exports.filterPosts = function(req, res) {
-    Post.find({category: req.params.id}, function (err, post) {
-        if(err) { return handleError(res, err); }
-        if(!post) { return res.send(404); }
-        return res.json(post);
-    });
+  Post.find({category: req.params.id}, function (err, post) {
+    if(err) { return handleError(res, err); }
+    if(!post) { return res.send(404); }
+    return res.json(post);
+  });
 };
 exports.editPost = function(req, res) {
-    Post.findById(req.params.id, function (err, post) {
-        if(err) { return handleError(res, err); }
-        if(!post) { return res.send(404); }
-        return res.json(post);
-    });
+  Post.findById(req.params.id, function (err, post) {
+    if(err) { return handleError(res, err); }
+    if(!post) { return res.send(404); }
+    return res.json(post);
+  });
 };
 
 // Creates a new post in the DB.

@@ -3,10 +3,15 @@
 angular.module('blogSystemApp')
   .service('newService', function ($resource) {
     return $resource('/api/posts/:id/:controller', {
-      id: '@_id'
+        id: '@_id'
 
     },
       {
+
+        getCurrentPost: function() {
+          return currentPost;
+        },
+
         userProfileUp: {
         method: 'PUT',
         params: {
@@ -28,7 +33,15 @@ angular.module('blogSystemApp')
               controller: 'category'
           }
       },
-         fullPost: {
+        getImage: {
+          method: 'get',
+          params: {
+            id: '@_id',
+            controller: 'show'
+          }
+        },
+
+        fullPost: {
           method: 'GET',
               isArray: false,
           params: {

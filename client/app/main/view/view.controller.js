@@ -5,8 +5,10 @@ angular.module('blogSystemApp')
 
         newService.fullPost({id: $state.params.id}, function(post) {
             var id = post._id;
+             $scope.image = post.image;
             $scope.post = post;
-            comment.query({id: id}, function (list) {
+          console.log('$scope.image',$scope.image)
+          comment.query({id: id}, function (list) {
                 $scope.commentList = list;
                 getReplyComment(0, list);
             });
@@ -60,7 +62,7 @@ angular.module('blogSystemApp')
         };
 
         $scope.replyComment = function(){
-          console.log('ssssssssssssssssssssssssssssssssssssssssssssssssssssssss')
+          console.log('replyComment',$scope.replyComment)
             if(Auth.isLoggedIn() === true) {
 
                 $scope.commentData.comment_author = Auth.getCurrentUser().userName;

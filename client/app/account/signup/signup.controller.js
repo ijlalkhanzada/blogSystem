@@ -13,7 +13,7 @@ angular.module('blogSystemApp')
           email: $scope.user.email,
           password: $scope.user.password
         })
-        .then( function() {
+          .then( function() {
           // Account created, redirect to home
           //  alert("your Account will b Activeated after admin Approval");
           $location.path('/');
@@ -26,13 +26,16 @@ angular.module('blogSystemApp')
             form[field].$setValidity('mongoose', false);
             $scope.errors[field] = error.message;
           });
-        });
+
+          });
       }
 
+/*
       $scope.loginOuth = function(provider){
         $window.location.href = '/auth/' + provider;
         console.log('loginOuth',loginOuth)
       }
+*/
     };
 
   });

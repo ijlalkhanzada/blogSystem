@@ -9,20 +9,19 @@
 
       <h3 class="ui blue ribbon label "><i class="write Square icon"></i>{{post.post_name}}</h3>
       <article class="article" >
-        <div class="">
+
           <header class="header">
             <h2 class="ui header left aligned">
               <div class="column"><h3><i class="tasks blue icon"></i>{{post.category}}</h3></div>
               <div class="content">
                 <div class="sub header">{{post.post_date | date:'medium'}}</div>
-                <h2 class="ui header">
-                  <img src="../assets/images/icon.png" class="ui circular image">
-                  {{post.post_author. userName}}
-                </h2>
+              </div>
+              <div class="ui header">
+                <img class="ui small rounded image" ng-src=" api/posts/{{image}}/show " width="150" height="150">
+                {{post.post_author.userName}}
               </div>
             </h2>
           </header>
-        </div>
         <div class="entry_summary">
           <section class="content ">
             <p  ng-bind="post.post_content"></p>

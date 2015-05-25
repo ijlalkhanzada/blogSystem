@@ -5,7 +5,7 @@ angular.module('blogSystemApp')
     categories.query({id: $state.params.id},function(category) {
       $scope.categories = category;
       var id = category._id;
-      console.log('W',category)
+      console.log('category Name',category._id)
 
     });
 

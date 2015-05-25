@@ -13,6 +13,7 @@ angular.module('blogSystemApp')
     };
     $scope.categories = categories.query();
     $scope.categoryName = function(name) {
+      console.log('categoryName', $scope.categoryName)
        $state.go('filterPosts',{id: name})
     };
     if(Auth.isLoggedIn() === true) {

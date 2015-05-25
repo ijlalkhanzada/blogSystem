@@ -10,9 +10,8 @@ var nodemailer = require("nodemailer");
 
 var router = express.Router();
 
-router.post('/upload/url', auth.hasRole('author'), multipartMiddleware, controller.postImageUpload);
-//router.get('/', auth.hasRole('editor'), controller.index);
-router.get('/', controller.index);
+router.post('/upload/url', auth.hasRole('author'), multipartMiddleware, controller.imageUpload);
+router.get('/:id/show', multipartMiddleware, controller.getImage);
 router.get('/:id',auth.hasRole('author'), controller.showAuthorPost);
 router.get('/:id/edit',auth.hasRole('author'), controller.editPost);
 router.get('/:id/category', controller.filterPosts);
@@ -21,6 +20,7 @@ router.post('/', auth.hasRole('author'),controller.create);
 router.put('/:id', auth.hasRole('author'), controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', auth.hasRole('author'), controller.destroy);
+router.get('/', controller.index);
 
 
 module.exports = router;

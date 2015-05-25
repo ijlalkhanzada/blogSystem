@@ -11,6 +11,7 @@ angular.module('blogSystemApp')
         console.log(name);
         $scope.categories = categories.query();
         $scope.obj.name = '';
+        console.log('$scope.obj.name',$scope.obj.name)
         $state.go('categories');
       });
     }
