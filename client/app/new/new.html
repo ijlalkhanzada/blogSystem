@@ -37,8 +37,28 @@
       <div class="form-group">
         <label for="newPostDescription" class="col-sm-2 control-label">Add Image</label>
         <div class="col-sm-10">
-          <input type="file" ngf-select ng-model="image" ngf-change="fileSelected($files, $event)" accept="image/*">
-          <span class="help-block ng-binding" ng-show="form.content.$error.required && submitted">Please Fill Description</span>
+
+          <button type="file" class="button" ngf-change="fileSelected($files, $event)" accept="image/*"  ngf-select ng-model="image" ngf-multiple="multiple">Select File</button>
+          <div class="checkbox" >
+            <label>
+              <input type="checkbox"  ng-model="multiple"> upload multiple file
+            </label>
+          </div>
+
+          <div ngf-drop ngf-select ng-model="image" class="drop-box"
+               ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+               accept="image/*,application/pdf"></div>
+          <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+          <h3>Selected Images</h3>
+
+          <ol>
+            <li ng-repeat="f in image">{{f.name}}</li>
+          </ol>
+
+          <!--<input type="file" ngf-select ng-model="image" ngf-change="fileSelected($files, $event)" accept="image/*"  ngf-multiple="multiple">-->
+          <!--<span class="help-block ng-binding" ng-show="form.content.$error.required && submitted">Please Fill Description</span>-->
+
+
         </div>
       </div>
       <button type="submit" class="btn btn-success pull-right">
@@ -48,6 +68,10 @@
     </form>
   </div>
 </div>
+
+
+
+
 
 
 

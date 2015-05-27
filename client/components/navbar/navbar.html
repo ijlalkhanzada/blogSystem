@@ -27,7 +27,7 @@
               <div class="menu">
               <a class="ui dropdown item">
                 <span>
-                  <img class= "avatar" style="  border-radius: 5px;" height="20" ng-src="api/users/{{ getCurrentUser.image }}/show" width="20">
+                  <img ng-if="getCurrentUser && getCurrentUser.image" class= "avatar" style="  border-radius: 5px;" height="20" ng-src="api/users/{{ getCurrentUser.image }}/show" width="20">
                 </span>
                 <span class="css-truncate">
               <span class="css-truncate-target" ui-sref="profile">{{ getCurrentUser.userName }}</span>

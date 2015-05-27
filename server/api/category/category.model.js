@@ -5,7 +5,9 @@ var mongoose = require('mongoose'),
 
 var CategorySchema = new Schema({
     name: String,
-    post_date: { type: Date, default: Date.now },
+  post_author: { type: Schema.ObjectId, ref: 'User' },
+
+  post_date: { type: Date, default: Date.now },
     post_name: String,
   category: String,
   post_content:String,

@@ -2,6 +2,8 @@
 
 angular.module('blogSystemApp')
   .controller('NewCtrl', function ($scope, newService , Auth ,$state, categories, Upload) {
+
+
     $scope.fileSelected = function(files){
       if (files && files.length) {
         for (var i = 0; i < files.length; i++) {

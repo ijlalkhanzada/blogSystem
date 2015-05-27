@@ -17,7 +17,7 @@
                 <div class="sub header">{{post.post_date | date:'medium'}}</div>
               </div>
               <div class="ui header">
-                <img class="ui small rounded image" ng-src=" api/posts/{{image}}/show " width="150" height="150">
+                <img ng-if="getCurrentUser" class="ui small rounded image" ng-src=" api/posts/{{getCurrentUser.image}}/show " width="150" height="150">
                 {{post.post_author.userName}}
               </div>
             </h2>

@@ -5,7 +5,6 @@ var Post = require('./post.model');
 var underscore = require('underscore');
 //var s3 = require('s3');
 var fs = require('fs');
-
 var mongo = require('mongodb');
 var Grid = require('gridfs-stream');
 var db = new mongo.Db('blogsystem-dev', new mongo.Server("127.0.0.1", 27017));
@@ -16,15 +15,24 @@ var validationError = function(res, err) {
 
 // write image on mongoDb
 exports.imageUpload = function(req, res) {
-  var file = req.files.file,
+  var file = req.files.file[0],
     path = file.path;
+
+
+  for (var i = 0; i < req.files.file.length; i++) {
+    console.log('file')
+
   db.open(function (err) {
     if (err) return handleError(err);
     var gfs = Grid(db, mongo);
     var writestream = gfs.createWriteStream({filename: file.name});
+    console.log('IMAGE UPLOAD',path );
+
     fs.createReadStream(path).pipe(writestream);
+
     res.send(200, {id: writestream.id});
   });
+  }
 };
 //read image from mongoDb
 exports.getImage = function(req, res) {

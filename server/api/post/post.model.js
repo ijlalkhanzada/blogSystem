@@ -10,7 +10,7 @@ var PostSchema = new Schema({
   post_content: String,
   post_tittle: String,
   post_status: String,
-  image: String,
+  image: [String],
   //comment_status: String,
   post_name: String,
   pinged: String,

@@ -45,15 +45,15 @@
         <option ng-repeat="category in categories">{{category.name}}</option>
       </select>
       <tr>
-        <th>Author</th>
+        <!--<th>Author</th>-->
         <th>Post Name</th>
         <th>Post Content</th>
         <th>Post Date</th>
       </tr>
       <tr ng-repeat="category in ctg">
-        <td>{{category.post_author}}</td>
+        <!--<td>{{category.post_author}}</td>-->
         <td>{{category.post_name}}</td>
-        <td>{{category.post_content | limitTo: 20}}</td>
+        <td>{{category.post_content | limitTo: 55}}</td>
         <td>{{category.post_date}}</td>
       </tr>
       </tbody>

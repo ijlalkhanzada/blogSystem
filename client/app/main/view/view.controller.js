@@ -47,13 +47,15 @@ angular.module('blogSystemApp')
 
         $scope.replycomment = [];
         function getReplyComment(index, list){
-                comment.getReplyComment({id: list[index]._id},function(rep){
-                    $scope.replycomment = $scope.replycomment.concat(rep);
-                    index++;
-                    if(index < list.length){
-                        getReplyComment(index, list);
-                    }
-                });
+          if(list[index]){
+            comment.getReplyComment({id: list[index]._id},function(rep){
+              $scope.replycomment = $scope.replycomment.concat(rep);
+              index++;
+              if(index < list.length){
+                getReplyComment(index, list);
+              }
+            });
+          }
         }
 
         $scope.commentData = {};
@@ -64,7 +66,6 @@ angular.module('blogSystemApp')
         $scope.replyComment = function(){
           console.log('replyComment',$scope.replyComment)
             if(Auth.isLoggedIn() === true) {
-
                 $scope.commentData.comment_author = Auth.getCurrentUser().userName;
                 comment.save($scope.commentData, function (res) {
                     $scope.replycomment.push(res);

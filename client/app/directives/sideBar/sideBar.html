@@ -14,7 +14,7 @@
 <div id="sideBar"  ng-show="categories.length">
     <ul class="ui relaxed list">
         <div class="item" ng-show="isLoggedIn()" ng-controller="NavbarCtrl" >
-          <img class= "avatar" style="  border-radius: 5px;" height="20" ng-src="api/users/{{ getCurrentUser.image }}/show" width="20">
+          <img ng-if="getCurrentUser && getCurrentUser.image" class= "avatar" style="  border-radius: 5px;" height="20" ng-src="api/users/{{ getCurrentUser.image }}/show" width="20">
                  <span class="css-truncate">
               <span class="css-truncate-target">{{ getCurrentUser.userName }}</span>
               </span>
